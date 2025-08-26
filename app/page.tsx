@@ -224,7 +224,7 @@ export default function MUNHomePage() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/20 hover:bg-card/70 transition-all duration-300 hover:scale-105">
-              <div className="text-2xl font-bold text-accent mb-2">48 Hours</div>
+              <div className="text-2xl font-bold text-accent mb-2">72 Hours</div>
               <div className="text-muted-foreground font-medium">Of Intensive Diplomacy</div>
             </div>
             <div className="p-6 rounded-xl bg-card/50 backdrop-blur-sm border border-border/20 hover:bg-card/70 transition-all duration-300 hover:scale-105">
