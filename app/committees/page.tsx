@@ -42,7 +42,7 @@ export default function CommitteesPage() {
         "Examine contemporary human rights challenges in our interconnected world, focusing on digital rights and minority protection.",
       level: "Intermediate",
       icon: Heart,
-      color: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+      color: "bg-amber-500/20 text-amber-400 border-amber-500/30",
     },
     {
       name: "International Court of Justice",

@@ -24,14 +24,21 @@ export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  const toggleVideo = () => {
+  const toggleVideo = async () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
+      try {
+        if (isPlaying) {
+          videoRef.current.pause()
+          setIsPlaying(false)
+        } else {
+          await videoRef.current.play()
+          setIsPlaying(true)
+        }
+      } catch (error) {
+        console.log("[v0] Video play/pause error handled:", error)
+        // Reset state if there's an error
+        setIsPlaying(videoRef.current ? !videoRef.current.paused : false)
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
@@ -189,6 +196,7 @@ export default function MUNHomePage() {
                   preload="metadata"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
                 >
                   <source src="/placeholder.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

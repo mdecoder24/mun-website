@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match MUN design brief with professional diplomatic theme */
+  /* Updated color tokens to pure gold theme for MLRIT MUN 2025 */
   --background: oklch(1 0 0);
   --foreground: oklch(0.205 0 0);
   --card: oklch(0.97 0 0);
@@ -13,35 +13,40 @@
   --popover-foreground: oklch(0.205 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.6 0.15 280);
-  --secondary-foreground: oklch(1 0 0);
+  /* Updated secondary and accent colors to pure gold */
+  --secondary: oklch(0.7 0.18 85);
+  --secondary-foreground: oklch(0.1 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.6 0.15 280);
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.7 0.18 85);
+  --accent-foreground: oklch(0.1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.9 0 0);
   --input: oklch(0.97 0 0);
-  --ring: oklch(0.6 0.15 280);
+  /* Updated ring color to pure gold */
+  --ring: oklch(0.7 0.18 85);
   --chart-1: oklch(0.5 0.15 160);
   --chart-2: oklch(0.55 0.12 160);
   --chart-3: oklch(0.45 0.08 50);
   --chart-4: oklch(0.205 0 0);
-  --chart-5: oklch(0.6 0.15 280);
+  /* Updated chart-5 to pure gold */
+  --chart-5: oklch(0.7 0.18 85);
   --radius: 0.5rem;
   --sidebar: oklch(0.97 0 0);
   --sidebar-foreground: oklch(0.205 0 0);
   --sidebar-primary: oklch(1 0 0);
   --sidebar-primary-foreground: oklch(0.205 0 0);
-  --sidebar-accent: oklch(0.6 0.15 280);
-  --sidebar-accent-foreground: oklch(1 0 0);
+  /* Updated sidebar accent to pure gold */
+  --sidebar-accent: oklch(0.7 0.18 85);
+  --sidebar-accent-foreground: oklch(0.1 0 0);
   --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.6 0.15 280);
+  /* Updated sidebar ring to pure gold */
+  --sidebar-ring: oklch(0.7 0.18 85);
 }
 
 .dark {
-  /* Updated dark mode tokens to maintain diplomatic professionalism */
+  /* Updated dark mode tokens with pure gold accents */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.18 0 0);
@@ -50,30 +55,36 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.985 0 0);
   --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.65 0.12 280);
+  /* Updated dark mode secondary to pure gold */
+  --secondary: oklch(0.75 0.15 85);
   --secondary-foreground: oklch(0.145 0 0);
   --muted: oklch(0.22 0 0);
   --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.65 0.12 280);
+  /* Updated dark mode accent to pure gold */
+  --accent: oklch(0.75 0.15 85);
   --accent-foreground: oklch(0.145 0 0);
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.25 0 0);
   --input: oklch(0.22 0 0);
-  --ring: oklch(0.65 0.12 280);
+  /* Updated dark mode ring to pure gold */
+  --ring: oklch(0.75 0.15 85);
   --chart-1: oklch(0.6 0.12 160);
   --chart-2: oklch(0.65 0.1 160);
   --chart-3: oklch(0.55 0.08 50);
   --chart-4: oklch(0.8 0 0);
-  --chart-5: oklch(0.65 0.12 280);
+  /* Updated dark mode chart-5 to pure gold */
+  --chart-5: oklch(0.75 0.15 85);
   --sidebar: oklch(0.18 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.65 0.12 280);
+  /* Updated dark mode sidebar primary to pure gold */
+  --sidebar-primary: oklch(0.75 0.15 85);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.22 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.65 0.12 280);
+  /* Updated dark mode sidebar ring to pure gold */
+  --sidebar-ring: oklch(0.75 0.15 85);
 }
 
 @theme inline {
