@@ -21,13 +21,76 @@ import {
   Phone,
   Mail,
 } from "lucide-react"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showContactModal, setShowContactModal] = useState(false)
   const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
+
+  const [delegateCount, setDelegateCount] = useState(0)
+  const [institutionCount, setInstitutionCount] = useState(0)
+  const [committeeCount, setCommitteeCount] = useState(0)
+
+  useEffect(() => {
+    const targetDate = new Date("2025-10-24T00:00:00").getTime()
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime()
+      const difference = targetDate - now
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        })
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const animateCounters = () => {
+      const duration = 2000 // 2 seconds
+      const steps = 60
+      const delegateTarget = 300
+      const institutionTarget = 50
+      const committeeTarget = 6
+
+      let currentStep = 0
+
+      const counter = setInterval(() => {
+        currentStep++
+        const progress = currentStep / steps
+
+        setDelegateCount(Math.floor(delegateTarget * progress))
+        setInstitutionCount(Math.floor(institutionTarget * progress))
+        setCommitteeCount(Math.floor(committeeTarget * progress))
+
+        if (currentStep >= steps) {
+          setDelegateCount(delegateTarget)
+          setInstitutionCount(institutionTarget)
+          setCommitteeCount(committeeTarget)
+          clearInterval(counter)
+        }
+      }, duration / steps)
+    }
+
+    // Start animation after a short delay
+    const timeout = setTimeout(animateCounters, 1000)
+    return () => clearTimeout(timeout)
+  }, [])
 
   const toggleVideo = async () => {
     if (videoRef.current) {
@@ -171,11 +234,11 @@ And that is a wrap!!`,
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <svg className="h-10 w-10 text-accent animate-pulse" viewBox="0 0 100 100" fill="currentColor">
-                  <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" />
-                  <path d="M25 35 L50 25 L75 35 L75 65 L50 75 L25 65 Z" fill="currentColor" opacity="0.8" />
-                  <circle cx="50" cy="50" r="15" fill="currentColor" />
-                </svg>
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mun-5nOqcPQkC02w840MrhoBlvdSd1brWk.png"
+                  alt="MLRIT MUN Logo"
+                  className="h-12 w-12 animate-pulse"
+                />
                 <Sparkles className="h-4 w-4 text-accent/60 absolute -top-1 -right-1 animate-bounce" />
               </div>
               <div>
@@ -244,6 +307,28 @@ And that is a wrap!!`,
               </Badge>
             </div>
 
+            <div className="mb-12">
+              <h3 className="font-playfair text-2xl md:text-3xl font-bold text-accent mb-6">Conference Countdown</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 hover:bg-card/70 transition-all duration-300">
+                  <div className="text-3xl md:text-4xl font-bold text-accent">{timeLeft.days}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Days</div>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 hover:bg-card/70 transition-all duration-300">
+                  <div className="text-3xl md:text-4xl font-bold text-accent">{timeLeft.hours}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Hours</div>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 hover:bg-card/70 transition-all duration-300">
+                  <div className="text-3xl md:text-4xl font-bold text-accent">{timeLeft.minutes}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Minutes</div>
+                </div>
+                <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-xl p-4 hover:bg-card/70 transition-all duration-300">
+                  <div className="text-3xl md:text-4xl font-bold text-accent">{timeLeft.seconds}</div>
+                  <div className="text-sm text-muted-foreground font-medium">Seconds</div>
+                </div>
+              </div>
+            </div>
+
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
               <span className="text-foreground bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text">
                 MLRIT Model
@@ -282,15 +367,15 @@ And that is a wrap!!`,
 
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               <div className="text-center p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/20 hover:bg-card/70 transition-all duration-300 hover:scale-105">
-                <div className="text-3xl font-bold text-accent mb-2">300+</div>
+                <div className="text-3xl font-bold text-accent mb-2">{delegateCount}+</div>
                 <div className="text-muted-foreground font-medium">Global Delegates</div>
               </div>
               <div className="text-center p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/20 hover:bg-card/70 transition-all duration-300 hover:scale-105">
-                <div className="text-3xl font-bold text-accent mb-2">50+</div>
+                <div className="text-3xl font-bold text-accent mb-2">{institutionCount}+</div>
                 <div className="text-muted-foreground font-medium">Institutions</div>
               </div>
               <div className="text-center p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/20 hover:bg-card/70 transition-all duration-300 hover:scale-105">
-                <div className="text-3xl font-bold text-accent mb-2">6</div>
+                <div className="text-3xl font-bold text-accent mb-2">{committeeCount}</div>
                 <div className="text-muted-foreground font-medium">Committees</div>
               </div>
             </div>
@@ -546,8 +631,14 @@ And that is a wrap!!`,
       </section>
 
       {/* Schedule Preview */}
-      <section id="schedule" className="py-20 relative">
+      <section id="schedule" className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5"></div>
+        <div className="absolute top-10 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5">
+          <div className="w-full h-full bg-gradient-to-br from-accent/10 via-transparent to-accent/5 animate-pulse"></div>
+        </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
@@ -558,44 +649,85 @@ And that is a wrap!!`,
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {scheduleData.map((schedule, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30 cursor-pointer"
-                onClick={() => setActiveScheduleDay(activeScheduleDay === index ? null : index)}
-              >
-                <CardHeader>
-                  <CardTitle className="font-playfair text-2xl flex items-center gap-3 text-accent">
-                    <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                    {schedule.day}
-                  </CardTitle>
-                  <CardDescription className="text-lg">{schedule.date}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  {activeScheduleDay === index ? (
-                    <div className="space-y-2 max-h-96 overflow-y-auto">
-                      {schedule.content.split("\n\n").map((item, itemIndex) => (
-                        <div
-                          key={itemIndex}
-                          className="p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors"
-                        >
-                          <span className="text-sm font-medium whitespace-pre-line">{item}</span>
-                        </div>
-                      ))}
+          <div className="mb-12">
+            <div className="flex justify-center items-center gap-8 md:gap-16 mb-8">
+              <div className="text-center group cursor-pointer" onClick={() => setActiveScheduleDay(0)}>
+                <div
+                  className={`relative p-6 rounded-2xl transition-all duration-500 ${activeScheduleDay === 0 ? "bg-accent/20 border-2 border-accent scale-105" : "bg-card/50 border border-border/30 hover:bg-card/70"} backdrop-blur-sm`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <h3 className="font-playfair text-2xl md:text-3xl font-bold text-accent mb-2">DAY 1</h3>
+                    <div className="w-12 h-1 bg-accent mx-auto mb-2"></div>
+                    <p className="text-lg font-semibold text-foreground">24 OCT</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center group cursor-pointer" onClick={() => setActiveScheduleDay(1)}>
+                <div
+                  className={`relative p-6 rounded-2xl transition-all duration-500 ${activeScheduleDay === 1 ? "bg-accent/20 border-2 border-accent scale-105" : "bg-card/50 border border-border/30 hover:bg-card/70"} backdrop-blur-sm`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <h3 className="font-playfair text-2xl md:text-3xl font-bold text-accent mb-2">DAY 2</h3>
+                    <div className="w-12 h-1 bg-accent mx-auto mb-2"></div>
+                    <p className="text-lg font-semibold text-foreground">25 OCT</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center group cursor-pointer" onClick={() => setActiveScheduleDay(2)}>
+                <div
+                  className={`relative p-6 rounded-2xl transition-all duration-500 ${activeScheduleDay === 2 ? "bg-accent/20 border-2 border-accent scale-105" : "bg-card/50 border border-border/30 hover:bg-card/70"} backdrop-blur-sm`}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative z-10">
+                    <h3 className="font-playfair text-2xl md:text-3xl font-bold text-accent mb-2">DAY 3</h3>
+                    <div className="w-12 h-1 bg-accent mx-auto mb-2"></div>
+                    <p className="text-lg font-semibold text-foreground">26 OCT</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {activeScheduleDay !== null && (
+            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-700 bg-card/90 backdrop-blur-sm border-border/30 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <CardHeader className="relative z-10">
+                <CardTitle className="font-playfair text-3xl flex items-center gap-3 text-accent">
+                  <Clock className="h-8 w-8 group-hover:rotate-12 transition-transform duration-300" />
+                  {scheduleData[activeScheduleDay].day} - {scheduleData[activeScheduleDay].date}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="relative z-10">
+                <div className="space-y-3 max-h-96 overflow-y-auto">
+                  {scheduleData[activeScheduleDay].content.split("\n\n").map((item, itemIndex) => (
+                    <div
+                      key={itemIndex}
+                      className="p-4 rounded-lg bg-background/50 hover:bg-accent/10 transition-all duration-300 hover:scale-[1.02] border border-border/20"
+                    >
+                      <span className="text-sm font-medium whitespace-pre-line text-foreground">{item}</span>
                     </div>
-                  ) : (
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                        <span className="text-muted-foreground font-medium">Click to view</span>
-                        <span className="font-semibold">Full Schedule</span>
-                      </div>
-                    </div>
-                  )}
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {activeScheduleDay === null && (
+            <div className="text-center">
+              <Card className="max-w-md mx-auto bg-card/50 backdrop-blur-sm border-border/30 hover:bg-card/70 transition-all duration-300">
+                <CardContent className="p-8">
+                  <Clock className="h-16 w-16 text-accent mx-auto mb-4 animate-pulse" />
+                  <p className="text-muted-foreground text-lg font-medium">
+                    Click on any day above to view the detailed schedule
+                  </p>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

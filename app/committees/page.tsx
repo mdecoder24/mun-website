@@ -2,68 +2,120 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Globe, Sparkles, Scale, Users, Heart, Briefcase, Shield, ArrowLeft } from "lucide-react"
+import { Globe, Sparkles, ArrowLeft, X, FileText, Users } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function CommitteesPage() {
+  const [showSourcesModal, setShowSourcesModal] = useState(false)
+  const [showEBModal, setShowEBModal] = useState(false)
+
   const committees = [
     {
-      name: "UN Security Council",
-      agenda: "Addressing Regional Conflicts and Peacekeeping Operations in Eastern Europe",
+      name: "AIPPM",
+      fullName: "All India Political Parties Meet",
+      agenda: "Strengthening Democratic Institutions and Electoral Reforms in India",
       description:
-        "The most prestigious committee dealing with international peace and security. Delegates will navigate complex geopolitical tensions while maintaining diplomatic relations.",
-      level: "Advanced",
-      icon: Shield,
-      color: "bg-red-500/20 text-red-400 border-red-500/30",
+        "Engage in high-level political discourse addressing India's democratic challenges, electoral reforms, and governance issues. Delegates will represent various political parties and work towards consensus on critical national matters.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png",
     },
     {
-      name: "UN General Assembly",
-      agenda: "Sustainable Development Goals: Climate Action and Global Cooperation Post-2030",
+      name: "UNCSW",
+      fullName: "United Nations Commission on the Status of Women",
+      agenda: "Women's Economic Empowerment in the Digital Age",
       description:
-        "Address the world's most pressing environmental challenges through multilateral cooperation and innovative policy solutions.",
-      level: "Beginner Friendly",
-      icon: Globe,
-      color: "bg-green-500/20 text-green-400 border-green-500/30",
+        "Address gender equality challenges in the modern world, focusing on women's economic empowerment, digital inclusion, and breaking barriers in technology and entrepreneurship sectors.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png",
     },
     {
-      name: "Economic and Social Council",
-      agenda: "Digital Economy and Future of Work: Bridging the Global Digital Divide",
+      name: "UNODC",
+      fullName: "United Nations Office on Drugs and Crime",
+      agenda: "Combating Transnational Organized Crime and Cybercrime",
       description:
-        "Focus on economic recovery, social development, and creating equitable opportunities in the digital age.",
-      level: "Intermediate",
-      icon: Briefcase,
-      color: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+        "Tackle the growing threats of organized crime, drug trafficking, and cybercrime. Develop comprehensive strategies for international cooperation in law enforcement and crime prevention.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png",
     },
     {
-      name: "Human Rights Council",
-      agenda: "Protection of Minority Rights in the Digital Age: Privacy, Expression, and Identity",
+      name: "IP",
+      fullName: "International Press",
+      agenda: "Media Ethics and Press Freedom in the Digital Era",
       description:
-        "Examine contemporary human rights challenges in our interconnected world, focusing on digital rights and minority protection.",
-      level: "Intermediate",
-      icon: Heart,
-      color: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+        "Experience journalism from the frontlines of diplomacy. Cover committee proceedings, conduct interviews, and report on the conference while addressing challenges of media ethics and press freedom.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ip-H8Zy0XHG9PHcU4CRGWNomSiA8XK8zf.png",
     },
     {
-      name: "International Court of Justice",
-      agenda: "Maritime Boundary Disputes and Environmental Protection in International Waters",
+      name: "UNHRC",
+      fullName: "United Nations Human Rights Council",
+      agenda: "Protection of Human Rights in Conflict Zones and Post-Conflict Reconstruction",
       description:
-        "Adjudicate complex legal disputes between nations while upholding international law and environmental stewardship.",
-      level: "Advanced",
-      icon: Scale,
-      color: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+        "Address human rights violations in conflict areas and develop frameworks for protecting civilians, ensuring accountability, and supporting post-conflict reconstruction and reconciliation.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png",
+    },
+    {
+      name: "DISEC",
+      fullName: "Disarmament and International Security Committee",
+      agenda: "Nuclear Disarmament and Emerging Security Threats in Space",
+      description:
+        "Focus on global disarmament efforts, nuclear non-proliferation, and emerging security challenges including space militarization and cyber warfare threats to international stability.",
+      logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png",
     },
   ]
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Sources Modal */}
+      {showSourcesModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30 animate-in fade-in-0 zoom-in-95 duration-300">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl text-accent">Committee Sources</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowSourcesModal(false)} className="h-8 w-8 p-0">
+                <X className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="text-center py-8">
+              <FileText className="h-16 w-16 text-accent mx-auto mb-4 animate-pulse" />
+              <h3 className="text-2xl font-bold text-accent mb-2">To be revealed</h3>
+              <p className="text-muted-foreground">
+                Committee sources and background guides will be shared closer to the conference date.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* EB Modal */}
+      {showEBModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30 animate-in fade-in-0 zoom-in-95 duration-300">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl text-accent">Executive Board</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowEBModal(false)} className="h-8 w-8 p-0">
+                <X className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="text-center py-8">
+              <Users className="h-16 w-16 text-accent mx-auto mb-4 animate-pulse" />
+              <h3 className="text-2xl font-bold text-accent mb-2">To be revealed</h3>
+              <p className="text-muted-foreground">
+                Executive Board members and committee chairs will be announced soon.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="border-b border-border/20 bg-background/80 backdrop-blur-xl sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Globe className="h-10 w-10 text-accent animate-pulse" />
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mun-5nOqcPQkC02w840MrhoBlvdSd1brWk.png"
+                  alt="MLRIT MUN Logo"
+                  className="h-12 w-12 animate-pulse"
+                />
                 <Sparkles className="h-4 w-4 text-accent/60 absolute -top-1 -right-1 animate-bounce" />
               </div>
               <div>
@@ -87,22 +139,25 @@ export default function CommitteesPage() {
                 About Us
               </Link>
               <Link
-                href="/core"
-                className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
-              >
-                The Core
-              </Link>
-              <Link href="/committees" className="text-accent font-medium">
-                Committees
-              </Link>
-              <Link
                 href="/sponsor"
                 className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
               >
                 Sponsor Us
               </Link>
+              <Link href="/committees" className="text-accent font-medium">
+                Committees
+              </Link>
+              <Link
+                href="/core"
+                className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
+              >
+                The Core
+              </Link>
             </div>
-            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold">
+            <Button
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+            >
               Register Now
             </Button>
           </div>
@@ -118,10 +173,7 @@ export default function CommitteesPage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-8">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
-            >
+            <Link href="/" className="flex items-center gap-2 text-foreground hover:text-accent transition-colors">
               <ArrowLeft className="h-5 w-5" />
               Back to Home
             </Link>
@@ -138,9 +190,9 @@ export default function CommitteesPage() {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed font-medium">
-              Engage with pressing global issues across five diverse committees, each offering unique challenges and
-              learning opportunities
+            <p className="text-xl md:text-2xl text-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+              Select the committee that aligns with your interests and embark on a transformative diplomatic journey at
+              MLRIT MUN 2025.
             </p>
           </div>
         </div>
@@ -151,67 +203,77 @@ export default function CommitteesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/10 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8">
-            {committees.map((committee, index) => {
-              const IconComponent = committee.icon
-              return (
-                <Card
-                  key={index}
-                  className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden"
-                  style={{
-                    animationDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            {committees.map((committee, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden"
+                style={{
+                  animationDelay: `${index * 150}ms`,
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-                  <CardHeader className="relative z-10 pb-6">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className="relative">
-                        <IconComponent className="h-12 w-12 text-accent group-hover:rotate-12 transition-transform duration-500" />
-                        <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      </div>
-                      <div className="flex-1">
-                        <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/90 transition-colors mb-2">
-                          {committee.name}
-                        </CardTitle>
-                        <Badge variant="secondary" className={`${committee.color} font-semibold`}>
-                          {committee.level}
-                        </Badge>
-                      </div>
+                <CardHeader className="relative z-10 pb-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative">
+                      <img
+                        src={committee.logo || "/placeholder.svg"}
+                        alt={`${committee.name} Logo`}
+                        className="h-16 w-16 object-contain group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                  </CardHeader>
-
-                  <CardContent className="relative z-10 space-y-6">
-                    <div className="bg-gradient-to-r from-accent/10 to-accent/5 rounded-xl p-4 border border-accent/20">
-                      <h4 className="font-semibold text-accent mb-2">Committee Agenda:</h4>
-                      <p className="text-muted-foreground leading-relaxed font-medium">{committee.agenda}</p>
+                    <div className="flex-1">
+                      <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/90 transition-colors mb-1">
+                        {committee.name}
+                      </CardTitle>
+                      <p className="text-sm text-muted-foreground font-medium mb-3">{committee.fullName}</p>
                     </div>
+                  </div>
+                </CardHeader>
 
-                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                      {committee.description}
-                    </p>
+                <CardContent className="relative z-10 space-y-6">
+                  <div className="bg-gradient-to-r from-accent/10 to-accent/5 rounded-xl p-4 border border-accent/20">
+                    <h4 className="font-semibold text-accent mb-2">Committee Agenda:</h4>
+                    <p className="text-muted-foreground leading-relaxed font-medium">{committee.agenda}</p>
+                  </div>
 
-                    <div className="flex justify-between items-center pt-4 border-t border-border/30">
-                      <div className="flex space-x-2">
-                        {[...Array(3)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="w-2 h-2 bg-accent/30 rounded-full group-hover:bg-accent/60 transition-colors duration-300"
-                            style={{ animationDelay: `${i * 100}ms` }}
-                          ></div>
-                        ))}
-                      </div>
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                    {committee.description}
+                  </p>
+
+                  <div className="flex justify-between items-center pt-4 border-t border-border/30">
+                    <div className="flex space-x-3">
                       <Button
                         variant="outline"
                         size="sm"
+                        onClick={() => setShowSourcesModal(true)}
                         className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
                       >
-                        Learn More
+                        Sources
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setShowEBModal(true)}
+                        className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
+                      >
+                        EB
                       </Button>
                     </div>
-                  </CardContent>
-                </Card>
-              )
-            })}
+                    <div className="flex space-x-2">
+                      {[...Array(3)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-2 h-2 bg-accent/30 rounded-full group-hover:bg-accent/60 transition-colors duration-300"
+                          style={{ animationDelay: `${i * 100}ms` }}
+                        ></div>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -264,7 +326,7 @@ export default function CommitteesPage() {
             <Card className="text-center group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
               <CardHeader className="pb-4">
                 <div className="relative mx-auto mb-6">
-                  <Briefcase className="h-16 w-16 text-accent mx-auto group-hover:scale-110 transition-transform duration-300" />
+                  <FileText className="h-16 w-16 text-accent mx-auto group-hover:scale-110 transition-transform duration-300" />
                   <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <CardTitle className="font-playfair text-2xl text-accent">Skill Development</CardTitle>
@@ -293,7 +355,7 @@ export default function CommitteesPage() {
             </span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Select the committee that aligns with your interests and embark on a transformative diplomatic journey at
             MLRIT MUN 2025.
           </p>
@@ -302,6 +364,7 @@ export default function CommitteesPage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
             >
               Register for Committees
             </Button>
@@ -326,14 +389,14 @@ export default function CommitteesPage() {
               <div className="flex items-center space-x-3 mb-6">
                 <Globe className="h-8 w-8 text-accent" />
                 <div>
-                  <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent">
+                  <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                     MLRIT MUN 2025
                   </span>
                   <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed max-w-md">
-                Five exceptional committees offering diverse diplomatic challenges and learning opportunities.
+                Six exceptional committees offering diverse diplomatic challenges and learning opportunities.
               </p>
             </div>
 
@@ -378,8 +441,8 @@ export default function CommitteesPage() {
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">info@mlritmun2025.org</li>
-                <li className="font-medium">+91 (555) 123-4567</li>
+                <li className="font-medium">mun@mlrit.ac.in</li>
+                <li className="font-medium">Praneeth: 9390174268</li>
                 <li className="font-medium">MLRIT Campus</li>
                 <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
