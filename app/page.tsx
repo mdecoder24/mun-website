@@ -746,105 +746,140 @@ And that is a wrap!!`,
 
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png"
+                    alt="AIPPM Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  UN Security Council
+                  AIPPM
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Maintaining International Peace</CardDescription>
+                <CardDescription className="text-lg font-medium">All India Political Parties Meet</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Address current global conflicts and peacekeeping operations with the world's most powerful diplomatic
-                  body.
+                  Engage in India's democratic discourse by representing various political parties and addressing
+                  national issues through collaborative dialogue and policy-making.
                 </p>
-                <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 font-semibold">
-                  Advanced Level
-                </Badge>
               </CardContent>
             </Card>
 
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png"
+                    alt="UNCSW Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  General Assembly
+                  UNCSW
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Climate Change & Sustainability</CardDescription>
+                <CardDescription className="text-lg font-medium">
+                  United Nations Commission on the Status of Women
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Develop comprehensive strategies for global environmental challenges and sustainable development.
+                  Champion gender equality and women's empowerment through policy development and international
+                  cooperation on women's rights issues.
                 </p>
-                <Badge variant="secondary" className="bg-green-500/20 text-green-400 border-green-500/30 font-semibold">
-                  Beginner Friendly
-                </Badge>
               </CardContent>
             </Card>
 
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png"
+                    alt="UNODC Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  Economic & Social Council
+                  UNODC
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Global Economic Recovery</CardDescription>
+                <CardDescription className="text-lg font-medium">
+                  United Nations Office on Drugs and Crime
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Focus on post-pandemic economic recovery and reducing global inequality through policy solutions.
+                  Combat transnational organized crime, drug trafficking, and corruption while promoting justice and
+                  rule of law globally.
                 </p>
-                <Badge variant="secondary" className="bg-blue-500/20 text-blue-400 border-blue-500/30 font-semibold">
-                  Intermediate
-                </Badge>
               </CardContent>
             </Card>
 
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ip-H8Zy0XHG9PHcU4CRGWNomSiA8XK8zf.png"
+                    alt="IP Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  Human Rights Council
+                  IP
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Digital Rights & Privacy</CardDescription>
+                <CardDescription className="text-lg font-medium">International Press</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Examine the intersection of technology, human rights, and privacy in the digital age.
+                  Report on global events, conduct interviews, and shape public opinion through responsible journalism
+                  and media coverage of international affairs.
                 </p>
-                <Badge variant="secondary" className="bg-blue-500/20 text-blue-400 border-blue-500/30 font-semibold">
-                  Intermediate
-                </Badge>
               </CardContent>
             </Card>
 
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png"
+                    alt="UNHRC Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  WHO Assembly
+                  UNHRC
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Global Health Preparedness</CardDescription>
+                <CardDescription className="text-lg font-medium">United Nations Human Rights Council</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Strengthen international health systems and pandemic preparedness for future global health crises.
+                  Protect and promote human rights worldwide by addressing violations and developing international human
+                  rights standards and policies.
                 </p>
-                <Badge variant="secondary" className="bg-green-500/20 text-green-400 border-green-500/30 font-semibold">
-                  Beginner Friendly
-                </Badge>
               </CardContent>
             </Card>
 
             <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
+              <CardHeader className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png"
+                    alt="DISEC Logo"
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
                 <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/80 transition-colors">
-                  Crisis Committee
+                  DISEC
                 </CardTitle>
-                <CardDescription className="text-lg font-medium">Real-Time Diplomatic Challenges</CardDescription>
+                <CardDescription className="text-lg font-medium">
+                  Disarmament and International Security Committee
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  Navigate evolving international crises with dynamic scenarios and real-time decision making.
+                  Address global security challenges, nuclear disarmament, and peacekeeping operations to maintain
+                  international stability and security.
                 </p>
-                <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 font-semibold">
-                  Advanced Level
-                </Badge>
               </CardContent>
             </Card>
           </div>
@@ -921,7 +956,7 @@ And that is a wrap!!`,
                 <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Location</h4>
                 <div className="rounded-lg overflow-hidden border border-border/30">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6!2d78.3!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sMarri%20Laxman%20Reddy%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8!2d78.3!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sMLR%20Institute%20of%20Technology%2C%20Dundigal%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin"
                     width="100%"
                     height="200"
                     style={{ border: 0 }}
@@ -975,10 +1010,11 @@ And that is a wrap!!`,
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">info@mun2025.org</li>
-                <li className="font-medium">+1 (555) 123-4567</li>
-                <li className="font-medium">123 Conference Ave</li>
-                <li className="font-medium">City, State 12345</li>
+                <li className="font-medium">mun@mlrit.ac.in</li>
+                <li className="font-medium">+91 6303916919</li>
+                <li className="font-medium">+91 8367587388</li>
+                <li className="font-medium">MLR Institute of Technology</li>
+                <li className="font-medium">Dundigal, Hyderabad</li>
               </ul>
 
               <div className="mt-6">

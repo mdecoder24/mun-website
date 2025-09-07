@@ -259,6 +259,7 @@ export default function AboutPage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
             >
               Register for MUN 2025
             </Button>
