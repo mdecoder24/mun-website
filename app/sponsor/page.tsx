@@ -3,10 +3,26 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Globe, Sparkles, Building, Users, Download, ArrowLeft, Star, Target, Award } from "lucide-react"
+import {
+  Globe,
+  Sparkles,
+  Building,
+  Users,
+  Download,
+  ArrowLeft,
+  Star,
+  Target,
+  Award,
+  X,
+  Phone,
+  Mail,
+} from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function SponsorPage() {
+  const [showContactModal, setShowContactModal] = useState(false)
+
   const previousSponsors = [
     { name: "TechCorp Solutions", logo: "/abstract-tech-logo.png", tier: "Platinum" },
     { name: "Global Innovations", logo: "/innovation-company-logo.png", tier: "Gold" },
@@ -21,7 +37,6 @@ export default function SponsorPage() {
   const sponsorshipTiers = [
     {
       name: "Platinum Sponsor",
-      amount: "$10,000+",
       benefits: [
         "Prime logo placement on all materials",
         "Opening ceremony speaking opportunity",
@@ -33,7 +48,6 @@ export default function SponsorPage() {
     },
     {
       name: "Gold Sponsor",
-      amount: "$5,000+",
       benefits: [
         "Logo on conference materials",
         "Booth space in main hall",
@@ -44,7 +58,6 @@ export default function SponsorPage() {
     },
     {
       name: "Silver Sponsor",
-      amount: "$2,500+",
       benefits: ["Logo on website and programs", "Social media recognition", "Conference materials inclusion"],
       color: "bg-gradient-to-r from-gray-400 to-gray-200",
     },
@@ -52,6 +65,35 @@ export default function SponsorPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl text-accent">Contact Our Team</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowContactModal(false)} className="h-8 w-8 p-0">
+                <X className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50">
+                <Phone className="h-5 w-5 text-accent" />
+                <div>
+                  <p className="font-semibold">Praneeth</p>
+                  <p className="text-muted-foreground">9390174268</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50">
+                <Mail className="h-5 w-5 text-accent" />
+                <div>
+                  <p className="font-semibold">Email</p>
+                  <p className="text-muted-foreground">mun@mlrit.ac.in</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="border-b border-border/20 bg-background/80 backdrop-blur-xl sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,11 +123,8 @@ export default function SponsorPage() {
               >
                 About Us
               </Link>
-              <Link
-                href="/core"
-                className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
-              >
-                The Core
+              <Link href="/sponsor" className="text-accent font-medium">
+                Sponsor Us
               </Link>
               <Link
                 href="/committees"
@@ -93,11 +132,17 @@ export default function SponsorPage() {
               >
                 Committees
               </Link>
-              <Link href="/sponsor" className="text-accent font-medium">
-                Sponsor Us
+              <Link
+                href="/core"
+                className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
+              >
+                The Core
               </Link>
             </div>
-            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold">
+            <Button
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+            >
               Register Now
             </Button>
           </div>
@@ -115,7 +160,7 @@ export default function SponsorPage() {
           <div className="flex items-center gap-4 mb-8">
             <Link
               href="/"
-              className="flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-foreground hover:text-accent transition-colors font-medium"
             >
               <ArrowLeft className="h-5 w-5" />
               Back to Home
@@ -237,9 +282,6 @@ export default function SponsorPage() {
                     >
                       {tier.name}
                     </div>
-                    <CardTitle className="font-playfair text-3xl text-accent group-hover:text-accent/90 transition-colors">
-                      {tier.amount}
-                    </CardTitle>
                   </div>
                 </CardHeader>
 
@@ -254,10 +296,6 @@ export default function SponsorPage() {
                       </li>
                     ))}
                   </ul>
-
-                  <Button className="w-full mt-6 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground transition-all duration-300 hover:scale-105">
-                    Choose {tier.name.split(" ")[0]}
-                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -341,7 +379,7 @@ export default function SponsorPage() {
             </span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Join our prestigious list of sponsors and help shape the future of diplomatic education at MLRIT MUN 2025.
           </p>
 
@@ -357,6 +395,7 @@ export default function SponsorPage() {
               size="lg"
               variant="outline"
               className="text-xl px-12 py-4 bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 font-semibold"
+              onClick={() => setShowContactModal(true)}
             >
               Contact Our Team
             </Button>

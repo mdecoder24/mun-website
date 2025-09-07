@@ -17,11 +17,16 @@ import {
   Pause,
   Scroll,
   PenTool,
+  X,
+  Phone,
+  Mail,
 } from "lucide-react"
 import { useState, useRef } from "react"
 
 export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [showContactModal, setShowContactModal] = useState(false)
+  const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const toggleVideo = async () => {
@@ -36,25 +41,145 @@ export default function MUNHomePage() {
         }
       } catch (error) {
         console.log("[v0] Video play/pause error handled:", error)
-        // Reset state if there's an error
         setIsPlaying(videoRef.current ? !videoRef.current.paused : false)
       }
     }
   }
 
+  const scheduleData = [
+    {
+      day: "Day 1",
+      date: "October 24, 2025",
+      content: `8:30 am - 10:00 am: REGISTRATION PROCESS AND HELPDESK
+Participants register and receive assistance.
+
+9:30 am - 10:30 am: BREAKFAST
+A meal to start the day.
+
+10:40 am - 11:40 am: OPENING CEREMONY
+Official kickoff of the event.
+
+12:00 pm - 2:00 pm: SESSION 1
+Here your journey begins!!
+
+2:00 pm - 2:50 pm: LUNCH
+Too much work for your fragile bodies, have the RAJ BHOG now!!
+
+3:00 pm - 5:00 pm: SESSION 2
+
+5:00 pm - 6:00 pm: SNACKS & HIGH TEA
+Have thode snacks!!
+
+6:30 pm: BUSES DEPARTURE
+Dont wanna say goodbye? Your Loss Non Accom Peeps!!
+
+7:00 pm - 8:30 pm: CAMPFIRE
+Mauj Masti!!
+
+9:00 pm - 10:00 pm: DINNER
+Manchiga tinandi andaru!
+
+10:00 pm: DISPERSE
+Chalo Goodnight!!`,
+    },
+    {
+      day: "Day 2",
+      date: "October 25, 2025",
+      content: `9:00 am - 10:00 am: BREAKFAST
+Khao piyo mauj karo mitro!!
+
+10:30 am - 1:20 pm: SESSION 3
+
+1:30 pm - 2:20 pm: LUNCH
+More Delicacies!!
+
+2:30 pm - 4:00 pm: SESSION 4
+
+4:00 pm - 4:20 pm: SNACKS & HIGH TEA
+Light ga tinandi!!
+
+4:30 pm - 6:00 pm: SESSION 5
+
+6:30 pm - 8:00 pm: SOCIAL NIGHT
+Have fun at the __________!!! shhh
+
+8:30 pm: BUSES DEPARTURE
+Dont wanna say goodbye? Your Loss Non Accom Peeps (again)!!
+
+9:00 pm - 10:00 pm: DINNER
+Thak gaye honge, jal lijiye!
+
+10:00 pm: DISPERSE
+Disperse!`,
+    },
+    {
+      day: "Day 3",
+      date: "October 26, 2025",
+      content: `9:00 am - 9:40 am: BREAKFAST
+The Last one with us?
+
+9:50 am - 10:30 am: SESSION 6
+
+10:40 am - 10:55 am: HIGH TEA
+Snacks!!
+
+11:00 am - 11:40 am: SESSION 7
+
+11:50 am - 12:40 pm: LUNCH
+Lunch time people!!
+
+1:00 pm - 2:00 pm: CLOSING CEREMONY
+And that is a wrap!!`,
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-background">
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl text-accent">Contact Our Team</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowContactModal(false)} className="h-8 w-8 p-0">
+                <X className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50">
+                <Phone className="h-5 w-5 text-accent" />
+                <div>
+                  <p className="font-semibold">Praneeth</p>
+                  <p className="text-muted-foreground">9390174268</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50">
+                <Mail className="h-5 w-5 text-accent" />
+                <div>
+                  <p className="font-semibold">Email</p>
+                  <p className="text-muted-foreground">mun@mlrit.ac.in</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="border-b border-border/20 bg-background/80 backdrop-blur-xl sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Globe className="h-10 w-10 text-accent animate-pulse" />
+                <svg className="h-10 w-10 text-accent animate-pulse" viewBox="0 0 100 100" fill="currentColor">
+                  <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" />
+                  <path d="M25 35 L50 25 L75 35 L75 65 L50 75 L25 65 Z" fill="currentColor" opacity="0.8" />
+                  <circle cx="50" cy="50" r="15" fill="currentColor" />
+                </svg>
                 <Sparkles className="h-4 w-4 text-accent/60 absolute -top-1 -right-1 animate-bounce" />
               </div>
               <div>
-                <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text">
                   MLRIT MUN 2025
                 </span>
                 <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
@@ -74,10 +199,10 @@ export default function MUNHomePage() {
                 About Us
               </a>
               <a
-                href="/core"
+                href="/sponsor"
                 className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
               >
-                The Core
+                Sponsor Us
               </a>
               <a
                 href="/committees"
@@ -86,13 +211,16 @@ export default function MUNHomePage() {
                 Committees
               </a>
               <a
-                href="/sponsor"
+                href="/core"
                 className="text-muted-foreground hover:text-accent transition-all duration-300 hover:scale-105 font-medium"
               >
-                Sponsor Us
+                The Core
               </a>
             </div>
-            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold">
+            <Button
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+            >
               Register Now
             </Button>
           </div>
@@ -117,11 +245,11 @@ export default function MUNHomePage() {
             </div>
 
             <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text text-transparent">
+              <span className="text-foreground bg-gradient-to-r from-foreground via-foreground to-accent bg-clip-text">
                 MLRIT Model
               </span>
               <br />
-              <span className="bg-gradient-to-r from-accent via-accent to-foreground bg-clip-text text-transparent animate-pulse">
+              <span className="text-accent bg-gradient-to-r from-accent via-accent to-foreground bg-clip-text animate-pulse">
                 United Nations 2025
               </span>
             </h1>
@@ -137,6 +265,7 @@ export default function MUNHomePage() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+                onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
               >
                 <Trophy className="w-5 h-5 mr-2" />
                 Register as Delegate
@@ -145,6 +274,7 @@ export default function MUNHomePage() {
                 size="lg"
                 variant="outline"
                 className="text-xl px-12 py-4 bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 font-semibold"
+                onClick={() => document.getElementById("committees")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Learn More
               </Button>
@@ -176,7 +306,7 @@ export default function MUNHomePage() {
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mb-6">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
               Experience MLRIT MUN 2025
             </h2>
             <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
@@ -247,7 +377,7 @@ export default function MUNHomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mb-6">
+            <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
               Messages from Leadership
             </h2>
             <p className="text-muted-foreground text-xl leading-relaxed">
@@ -257,7 +387,7 @@ export default function MUNHomePage() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Secretary General Letter */}
-            <Card className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden">
+            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               <CardHeader className="relative z-10 pb-4">
                 <div className="flex items-center gap-4 mb-6">
@@ -266,7 +396,7 @@ export default function MUNHomePage() {
                     <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                   <div>
-                    <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/90 transition-colors">
+                    <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/80 transition-colors">
                       Secretary General
                     </CardTitle>
                     <CardDescription className="text-lg font-medium text-muted-foreground">
@@ -278,30 +408,36 @@ export default function MUNHomePage() {
               <CardContent className="relative z-10">
                 <div className="prose prose-invert max-w-none">
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "Dear Distinguished Delegates,
+                    "Dear Delegate,
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    It is with immense pride and excitement that I welcome you to MLRIT Model United Nations 2025. This
-                    conference represents more than just a simulation—it is a platform for tomorrow's leaders to engage
-                    with today's most pressing global challenges.
+                    Take a deep breath. Because I know exactly where you are right now. The nervous energy, the constant
+                    doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Over the next three days, you will embody the spirit of diplomacy, negotiate complex resolutions,
-                    and forge connections that will last a lifetime. Remember, every great change in history began with
-                    passionate individuals willing to engage in meaningful dialogue.
+                    When I stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of
+                    strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't
+                    even know existed.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
+                    "You break the whole goddamn thing down." Conference by conference, speech by speech, I grew. And
+                    when I won my first award, I realized something Harvey Specter once said: "I don't get lucky. I make
+                    my own luck."
                   </p>
                   <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">
-                    Welcome to your diplomatic journey."
+                    Don't just show up. Make yourself impossible to ignore. I'll see you on the other side of the gavel.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/30">
-                  <p className="text-sm text-muted-foreground font-medium">- Secretary General, MLRIT MUN 2025</p>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    - Khaja Moizuddin, Secretary General, MLRIT MUN 2025
+                  </p>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Director General Letter */}
-            <Card className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden">
+            {/* Deputy Secretary General Letter */}
+            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               <CardHeader className="relative z-10 pb-4">
                 <div className="flex items-center gap-4 mb-6">
@@ -310,8 +446,8 @@ export default function MUNHomePage() {
                     <div className="absolute -inset-2 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                   <div>
-                    <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/90 transition-colors">
-                      Director General
+                    <CardTitle className="font-playfair text-2xl text-accent group-hover:text-accent/80 transition-colors">
+                      Deputy Secretary General
                     </CardTitle>
                     <CardDescription className="text-lg font-medium text-muted-foreground">
                       Excellence in Diplomacy
@@ -322,24 +458,27 @@ export default function MUNHomePage() {
               <CardContent className="relative z-10">
                 <div className="prose prose-invert max-w-none">
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "Esteemed Participants,
+                    "Leadership isn't always about standing at the front -- sometimes it begins behind the scenes,
+                    understanding what it takes to build something that matters.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    As Director General, I am honored to witness the convergence of brilliant minds from across
-                    institutions at MLRIT MUN 2025. This conference embodies our commitment to fostering intellectual
-                    discourse and diplomatic excellence.
+                    Last year, as part of the Organising Committee for the sixth edition of MLRIT MUN, I have seen how
+                    every detail, every plan, every challenge and every moment shapes the experience delegates carry
+                    with them long after the closing ceremony.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Each committee has been carefully crafted to challenge your analytical skills, test your diplomatic
-                    acumen, and inspire innovative solutions to global issues. Embrace the debates, learn from diverse
-                    perspectives, and let your voices shape the future.
+                    This year, stepping into the role of Deputy Secretary General, I carry forward that same commitment
+                    — not just to structure or execution, but to purpose. MUN, at its best, is a platform that sharpens
+                    minds and amplifies voices.
                   </p>
                   <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">
-                    May your deliberations lead to meaningful resolutions."
+                    Let this be the edition where ideas turn into impact, and voices become solutions.
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/30">
-                  <p className="text-sm text-muted-foreground font-medium">- Director General, MLRIT MUN 2025</p>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    - R. Mahitha Reddy, Deputy Secretary General, MLRIT MUN 2025
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -352,7 +491,7 @@ export default function MUNHomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/20 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mb-6">
+            <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
               Event Details
             </h2>
             <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
@@ -411,7 +550,7 @@ export default function MUNHomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mb-6">
+            <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
               Conference Schedule
             </h2>
             <p className="text-muted-foreground text-xl leading-relaxed">
@@ -420,77 +559,42 @@ export default function MUNHomePage() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
-                <CardTitle className="font-playfair text-2xl flex items-center gap-3 text-accent">
-                  <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                  Day 1 - Friday
-                </CardTitle>
-                <CardDescription className="text-lg">Opening & Committee Sessions</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">9:00 AM</span>
-                  <span className="font-semibold">Registration & Welcome</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">10:30 AM</span>
-                  <span className="font-semibold">Opening Ceremony</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">2:00 PM</span>
-                  <span className="font-semibold">Committee Sessions Begin</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
-                <CardTitle className="font-playfair text-2xl flex items-center gap-3 text-accent">
-                  <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                  Day 2 - Saturday
-                </CardTitle>
-                <CardDescription className="text-lg">Intensive Debates & Negotiations</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">9:00 AM</span>
-                  <span className="font-semibold">Committee Sessions</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">2:00 PM</span>
-                  <span className="font-semibold">Crisis Simulations</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">7:00 PM</span>
-                  <span className="font-semibold">Diplomatic Dinner</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30">
-              <CardHeader>
-                <CardTitle className="font-playfair text-2xl flex items-center gap-3 text-accent">
-                  <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-                  Day 3 - Sunday
-                </CardTitle>
-                <CardDescription className="text-lg">Resolutions & Closing</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">9:00 AM</span>
-                  <span className="font-semibold">Final Negotiations</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">1:00 PM</span>
-                  <span className="font-semibold">Resolution Presentations</span>
-                </div>
-                <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
-                  <span className="text-muted-foreground font-medium">4:00 PM</span>
-                  <span className="font-semibold">Awards & Closing</span>
-                </div>
-              </CardContent>
-            </Card>
+            {scheduleData.map((schedule, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-2xl hover:shadow-accent/10 transition-all duration-500 hover:scale-105 bg-card/80 backdrop-blur-sm border-border/30 cursor-pointer"
+                onClick={() => setActiveScheduleDay(activeScheduleDay === index ? null : index)}
+              >
+                <CardHeader>
+                  <CardTitle className="font-playfair text-2xl flex items-center gap-3 text-accent">
+                    <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+                    {schedule.day}
+                  </CardTitle>
+                  <CardDescription className="text-lg">{schedule.date}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {activeScheduleDay === index ? (
+                    <div className="space-y-2 max-h-96 overflow-y-auto">
+                      {schedule.content.split("\n\n").map((item, itemIndex) => (
+                        <div
+                          key={itemIndex}
+                          className="p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors"
+                        >
+                          <span className="text-sm font-medium whitespace-pre-line">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center p-3 rounded-lg bg-background/50 hover:bg-accent/10 transition-colors">
+                        <span className="text-muted-foreground font-medium">Click to view</span>
+                        <span className="font-semibold">Full Schedule</span>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -500,7 +604,7 @@ export default function MUNHomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card/10 to-transparent"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-playfair text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent mb-6">
+            <h2 className="font-playfair text-4xl md:text-6xl font-bold text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text mb-6">
               Committees
             </h2>
             <p className="text-muted-foreground text-xl leading-relaxed">
@@ -628,7 +732,7 @@ export default function MUNHomePage() {
           </div>
 
           <h2 className="font-playfair text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
+            <span className="text-foreground bg-gradient-to-r from-foreground to-accent bg-clip-text">
               Ready to Make Your Mark?
             </span>
           </h2>
@@ -642,9 +746,10 @@ export default function MUNHomePage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
             >
               <Trophy className="w-5 h-5 mr-2" />
-              Register Now - $75
+              Register Now
             </Button>
             <Button
               size="lg"
@@ -656,10 +761,7 @@ export default function MUNHomePage() {
           </div>
 
           <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-2xl p-6 max-w-2xl mx-auto">
-            <p className="text-muted-foreground font-medium">
-              <span className="text-accent font-bold">Early bird pricing</span> ends February 15th
-            </p>
-            <p className="text-muted-foreground mt-2">Group discounts available • Payment plans accepted</p>
+            <p className="text-muted-foreground font-medium">Group discounts available • Payment plans accepted</p>
           </div>
         </div>
       </section>
@@ -672,16 +774,32 @@ export default function MUNHomePage() {
               <div className="flex items-center space-x-3 mb-6">
                 <Globe className="h-8 w-8 text-accent" />
                 <div>
-                  <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent">
+                  <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
                   </span>
                   <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed max-w-md">
+              <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
                 Fostering diplomacy and international cooperation through Model United Nations. Building tomorrow's
                 global leaders through diplomatic simulation and cultural exchange.
               </p>
+
+              <div className="mt-6">
+                <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Location</h4>
+                <div className="rounded-lg overflow-hidden border border-border/30">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.6!2d78.3!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sMarri%20Laxman%20Reddy%20Institute%20of%20Technology%20and%20Management!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="grayscale hover:grayscale-0 transition-all duration-300"
+                  ></iframe>
+                </div>
+              </div>
             </div>
 
             <div>

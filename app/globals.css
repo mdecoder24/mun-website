@@ -134,3 +134,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Adding gradient text fallback styles to fix contrast issues */
+@layer utilities {
+  .gradient-text-fallback {
+    color: theme("colors.accent.DEFAULT");
+  }
+
+  .gradient-text-fallback.bg-gradient-to-r {
+    background: linear-gradient(to right, theme("colors.foreground"), theme("colors.accent.DEFAULT"));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Ensure gradient text has proper fallback in case gradient fails */
+  .bg-gradient-to-r.bg-clip-text.text-transparent {
+    color: theme("colors.accent.DEFAULT");
+    background: linear-gradient(to right, theme("colors.foreground"), theme("colors.accent.DEFAULT"));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Fix for transparent text issues */
+  .text-transparent {
+    color: theme("colors.accent.DEFAULT");
+  }
+}
