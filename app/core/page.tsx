@@ -66,7 +66,7 @@ export default function CorePage() {
                 Sponsor Us
               </Link>
             </div>
-            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold">
+            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank") }>
               Register Now
             </Button>
           </div>
@@ -258,6 +258,7 @@ export default function CorePage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+              onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank") }
             >
               Register as Delegate
             </Button>
