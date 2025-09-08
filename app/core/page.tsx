@@ -7,15 +7,16 @@ import Link from "next/link"
 
 export default function CorePage() {
   const secretariatMembers = [
-    { name: "Secretary General", role: "Chief Executive", image: "/professional-secretary-general-portrait.png" },
-    { name: "Director General", role: "Operations Head", image: "/professional-director-general-portrait.png" },
-    { name: "Deputy Secretary General", role: "Strategic Advisor", image: "/professional-deputy-secretary-portrait.png" },
-    { name: "Under Secretary General", role: "Committee Oversight", image: "/professional-under-secretary-portrait.png" },
-    { name: "Head of Logistics", role: "Event Coordination", image: "/professional-logistics-head-portrait.png" },
-    { name: "Head of Public Relations", role: "Communications", image: "/professional-pr-head-portrait.png" },
-    { name: "Head of Finance", role: "Financial Management", image: "/professional-finance-head-portrait.png" },
-    { name: "Head of Technology", role: "Digital Infrastructure", image: "/professional-tech-head-portrait.png" },
-    { name: "Head of Hospitality", role: "Delegate Experience", image: "/professional-hospitality-head-portrait.png" },
+    { name: "Khaja Moizudiin", role: "Secretary General", image: "/professional-secretary-general-portrait.png" },
+    { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/professional-director-general-portrait.png" },
+    { name: "Joint Director General", role: "Abdul Rahaman", image: "/professional-deputy-secretary-portrait.png" },
+    { name: "Joint Director General", role: "Sai Haneesh", image: "/professional-under-secretary-portrait.png" },
+    { name: "Charge D'Affairs", role: "Siddharth Naidu", image: "/professional-logistics-head-portrait.png" },
+    { name: "USG Finance", role: "Praneeth Pothnak", image: "/professional-pr-head-portrait.png" },
+    { name: "USG Administration", role: "Amisha Patra", image: "/professional-finance-head-portrait.png" },
+    { name: "USG Logistics", role: "Charishma", image: "/professional-tech-head-portrait.png" },
+    { name: "OC Head", role: "Shreya", image: "/professional-hospitality-head-portrait.png" },
+    { name: "OC Head", role: "Adit Kailash", image: "/professional-hospitality-head-portrait.png" },
   ]
 
   return (
