@@ -27,7 +27,7 @@ export default function CorePage() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <Globe className="h-10 w-10 text-accent animate-pulse" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-12 w-12 object-contain animate-pulse" />
                 <Sparkles className="h-4 w-4 text-accent/60 absolute -top-1 -right-1 animate-bounce" />
               </div>
               <div>
@@ -281,7 +281,7 @@ export default function CorePage() {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <Globe className="h-8 w-8 text-accent" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-10 w-10 object-contain" />
                 <div>
                   <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent">
                     MLRIT MUN 2025
