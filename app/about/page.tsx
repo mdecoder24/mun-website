@@ -282,7 +282,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <Globe className="h-8 w-8 text-accent" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-8 w-8" />
                 <div>
                   <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent">
                     MLRIT MUN 2025
@@ -337,8 +337,8 @@ export default function AboutPage() {
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">info@mlritmun2025.org</li>
-                <li className="font-medium">+91 (555) 123-4567</li>
+                <li className="font-medium">mlritmun@mlrit.ac.in</li>
+                <li className="font-medium">+91 6303916919</li>
                 <li className="font-medium">MLRIT Campus</li>
                 <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
