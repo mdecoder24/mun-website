@@ -1020,13 +1020,13 @@ And that is a wrap!!`,
                 <h5 className="font-semibold mb-3 text-foreground">Follow Us</h5>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/mlrit_mun/"
                     className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
                   >
                     LinkedIn
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/mlrit_mun/"
                     className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
                   >
                     Instagram
