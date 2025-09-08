@@ -212,7 +212,7 @@ export default function SponsorPage() {
               download
             >
               <Download className="w-5 h-5 mr-2" />
-              Download Sponsorship Brochure (PDF)
+              Download Sponsorship Brochure
             </a>
           </div>
 
@@ -387,13 +387,16 @@ export default function SponsorPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold"
+            <a
+              href="/Sponsorship.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground text-xl px-12 py-4 shadow-2xl hover:shadow-accent/25 transition-all duration-300 hover:scale-105 font-bold rounded-lg"
+              download
             >
               <Download className="w-5 h-5 mr-2" />
               Get Sponsorship Package
-            </Button>
+            </a>
             <Button
               size="lg"
               variant="outline"
@@ -466,8 +469,8 @@ export default function SponsorPage() {
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">sponsors@mlritmun2025.org</li>
-                <li className="font-medium">+91 (555) 123-4567</li>
+                <li className="font-medium">mlritmun@mlrit.ac.in</li>
+                <li className="font-medium">+91 6303916919</li>
                 <li className="font-medium">MLRIT Campus</li>
                 <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
