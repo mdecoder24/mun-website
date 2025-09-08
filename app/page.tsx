@@ -927,7 +927,7 @@ And that is a wrap!!`,
           </div>
 
           <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-2xl p-6 max-w-2xl mx-auto">
-            <p className="text-muted-foreground font-medium">Group discounts available • Payment plans accepted</p>
+            <p className="text-muted-foreground font-medium">• Payment plans accepted</p>
           </div>
         </div>
       </section>
@@ -1009,7 +1009,7 @@ And that is a wrap!!`,
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">mun@mlrit.ac.in</li>
+                <li className="font-medium">mlritmun@mlrit.ac.in</li>
                 <li className="font-medium">+91 6303916919</li>
                 <li className="font-medium">+91 8367587388</li>
                 <li className="font-medium">MLR Institute of Technology</li>
@@ -1019,12 +1019,6 @@ And that is a wrap!!`,
               <div className="mt-6">
                 <h5 className="font-semibold mb-3 text-foreground">Follow Us</h5>
                 <div className="flex space-x-4">
-                  <a
-                    href="#"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
-                  >
-                    Twitter
-                  </a>
                   <a
                     href="#"
                     className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
