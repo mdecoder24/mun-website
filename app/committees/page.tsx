@@ -14,7 +14,7 @@ export default function CommitteesPage() {
     {
       name: "AIPPM",
       fullName: "All India Political Parties Meet",
-      agenda: "Strengthening Democratic Institutions and Electoral Reforms in India",
+      agenda: "Placards down for now; announcements in the next moderated caucus.",
       description:
         "Engage in high-level political discourse addressing India's democratic challenges, electoral reforms, and governance issues. Delegates will represent various political parties and work towards consensus on critical national matters.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png",
@@ -22,7 +22,7 @@ export default function CommitteesPage() {
     {
       name: "UNCSW",
       fullName: "United Nations Commission on the Status of Women",
-      agenda: "Women's Economic Empowerment in the Digital Age",
+      agenda: "Placards down for now; announcements in the next moderated caucus.",
       description:
         "Address gender equality challenges in the modern world, focusing on women's economic empowerment, digital inclusion, and breaking barriers in technology and entrepreneurship sectors.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png",
@@ -30,7 +30,7 @@ export default function CommitteesPage() {
     {
       name: "UNODC",
       fullName: "United Nations Office on Drugs and Crime",
-      agenda: "Combating Transnational Organized Crime and Cybercrime",
+      agenda: "Placards down for now; announcements in the next moderated caucus",
       description:
         "Tackle the growing threats of organized crime, drug trafficking, and cybercrime. Develop comprehensive strategies for international cooperation in law enforcement and crime prevention.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png",
@@ -46,7 +46,7 @@ export default function CommitteesPage() {
     {
       name: "UNHRC",
       fullName: "United Nations Human Rights Council",
-      agenda: "Protection of Human Rights in Conflict Zones and Post-Conflict Reconstruction",
+      agenda: "Placards down for now; announcements in the next moderated caucus.",
       description:
         "Address human rights violations in conflict areas and develop frameworks for protecting civilians, ensuring accountability, and supporting post-conflict reconstruction and reconciliation.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png",
@@ -54,7 +54,7 @@ export default function CommitteesPage() {
     {
       name: "DISEC",
       fullName: "Disarmament and International Security Committee",
-      agenda: "Nuclear Disarmament and Emerging Security Threats in Space",
+      agenda: "Placards down for now; announcements in the next moderated caucus.",
       description:
         "Focus on global disarmament efforts, nuclear non-proliferation, and emerging security challenges including space militarization and cyber warfare threats to international stability.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png",
@@ -387,7 +387,7 @@ export default function CommitteesPage() {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <Globe className="h-8 w-8 text-accent" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-10 w-10 object-contain" />
                 <div>
                   <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                     MLRIT MUN 2025
@@ -441,8 +441,8 @@ export default function CommitteesPage() {
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">mun@mlrit.ac.in</li>
-                <li className="font-medium">Praneeth: 9390174268</li>
+                <li className="font-medium">mlritmun@mlrit.ac.in</li>
+                <li className="font-medium">6303916919</li>
                 <li className="font-medium">MLRIT Campus</li>
                 <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
