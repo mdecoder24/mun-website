@@ -955,7 +955,7 @@ And that is a wrap!!`,
                 <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Location</h4>
                 <div className="rounded-lg overflow-hidden border border-border/30">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.8!2d78.3!3d17.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93dc8c5d69df%3A0x19688beb557fa0ee!2sMLR%20Institute%20of%20Technology%2C%20Dundigal%2C%20Hyderabad!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.1744261147364!2d78.43861427414626!3d17.594450196809095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b8eae5cd739%3A0x2aa927e931d97eee!2sMLR%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1743153982796!5m2!1sen!2sin"
                     width="100%"
                     height="200"
                     style={{ border: 0 }}
