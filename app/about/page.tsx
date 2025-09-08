@@ -163,7 +163,7 @@ export default function AboutPage() {
               <div className="relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-2xl p-4 shadow-2xl hover:shadow-accent/10 transition-all duration-500">
                 <div className="aspect-[4/3] bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-500">
                   <img
-                    src="/club-literati-members-in-discussion--literary-club.png"
+                    src="/Lit.png"
                     alt="Club Literati members engaged in literary discussion"
                     className="w-full h-full object-cover"
                   />
