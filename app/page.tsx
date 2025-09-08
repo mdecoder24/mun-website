@@ -413,8 +413,7 @@ And that is a wrap!!`,
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
                 >
-                  <source src="/placeholder.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
+                  <source src="/mun.mp4" type="video/mp4" />
                 </video>
 
                 <div className="absolute inset-0 flex items-center justify-center">
