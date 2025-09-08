@@ -938,7 +938,7 @@ And that is a wrap!!`,
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <Globe className="h-8 w-8 text-accent" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-8 w-8" />
                 <div>
                   <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
