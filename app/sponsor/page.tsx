@@ -24,14 +24,14 @@ export default function SponsorPage() {
   const [showContactModal, setShowContactModal] = useState(false)
 
   const previousSponsors = [
-    { name: "TechCorp Solutions", logo: "/abstract-tech-logo.png", tier: "Platinum" },
-    { name: "Global Innovations", logo: "/innovation-company-logo.png", tier: "Gold" },
-    { name: "Future Enterprises", logo: "/enterprise-company-logo.png", tier: "Gold" },
-    { name: "Digital Dynamics", logo: "/digital-company-logo.png", tier: "Silver" },
-    { name: "Smart Systems", logo: "/systems-company-logo.png", tier: "Silver" },
-    { name: "NextGen Technologies", logo: "/generic-tech-logo.png", tier: "Silver" },
-    { name: "Innovation Hub", logo: "/hub-company-logo.png", tier: "Bronze" },
-    { name: "Creative Solutions", logo: "/creative-company-logo.png", tier: "Bronze" },
+    { name: "Dublieu", logo: "/Dublieu.jpg", tier: "Platinum" },
+    { name: "BMW", logo: "/BMW.jpg", tier: "Gold" },
+    { name: "Truman", logo: "/Truman.png", tier: "Platinum" },
+    { name: "One window", logo: "/One window.jpg", tier: "Silver" },
+    { name: "Almond House", logo: "/Almond House.png", tier: "Gold" },
+    { name: "Monster", logo: "/Monster .png", tier: "Silver" },
+    { name: "Red Bull", logo: "/Red bull.png", tier: "Silver" },
+
   ]
 
   const sponsorshipTiers = [
@@ -204,13 +204,16 @@ export default function SponsorPage() {
             <p className="text-muted-foreground text-xl leading-relaxed mb-8">
               Proud partners who supported MLRIT MUN 2024
             </p>
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-8 py-3 font-semibold"
+            <a
+              href="/Sponsorship.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-8 py-3 font-semibold rounded-lg text-lg"
+              download
             >
               <Download className="w-5 h-5 mr-2" />
-              Download Sponsorship Brochure
-            </Button>
+              Download Sponsorship Brochure (PDF)
+            </a>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
