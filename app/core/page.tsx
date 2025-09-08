@@ -9,13 +9,13 @@ export default function CorePage() {
   const secretariatMembers = [
     { name: "Khaja Moizudiin", role: "Secretary General", image: "/professional-secretary-general-portrait.png" },
     { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/professional-director-general-portrait.png" },
-  { name: "Abdul Rahaman", role: "Joint Director General", image: "/professional-deputy-secretary-portrait.png" },
+  { name: "Mohammed Abdul Rahaman", role: "Joint Director General", image: "/professional-deputy-secretary-portrait.png" },
   { name: "Sai Haneesh", role: "Joint Director General", image: "/professional-under-secretary-portrait.png" },
   { name: "Siddharth Naidu", role: "Charge D'Affairs", image: "/professional-logistics-head-portrait.png" },
   { name: "Praneeth Pothnak", role: "USG Finance", image: "/professional-pr-head-portrait.png" },
   { name: "Amisha Patra", role: "USG Administration", image: "/professional-finance-head-portrait.png" },
-  { name: "Charishma", role: "USG Logistics", image: "/professional-tech-head-portrait.png" },
-  { name: "Shreya", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
+  { name: "Charishma Kandregula", role: "USG Logistics", image: "/professional-tech-head-portrait.png" },
+  { name: "Shreya Dasari", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
   { name: "Adit Kailash", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
   ]
 
@@ -163,7 +163,7 @@ export default function CorePage() {
                     ))}
                   </div>
                   <p className="text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors">
-                    Leading with excellence and dedication to diplomatic innovation
+                    MLRIT MUN 2025 Secretariat Member
                   </p>
                 </CardContent>
               </Card>
@@ -334,8 +334,8 @@ export default function CorePage() {
             <div>
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
-                <li className="font-medium">info@mlritmun2025.org</li>
-                <li className="font-medium">+91 (555) 123-4567</li>
+                <li className="font-medium">mlritmun@mlrit.ac.in</li>
+                <li className="font-medium">+91 6303916919</li>
                 <li className="font-medium">MLRIT Campus</li>
                 <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
