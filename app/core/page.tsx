@@ -7,16 +7,16 @@ import Link from "next/link"
 
 export default function CorePage() {
   const secretariatMembers = [
-    { name: "Khaja Moizudiin", role: "Secretary General", image: "/professional-secretary-general-portrait.png" },
-    { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/professional-director-general-portrait.png" },
-  { name: "Mohammed Abdul Rahaman", role: "Joint Director General", image: "/professional-deputy-secretary-portrait.png" },
-  { name: "Sai Haneesh", role: "Joint Director General", image: "/professional-under-secretary-portrait.png" },
-  { name: "Siddharth Naidu", role: "Charge D'Affairs", image: "/professional-logistics-head-portrait.png" },
-  { name: "Praneeth Pothnak", role: "USG Finance", image: "/professional-pr-head-portrait.png" },
-  { name: "Amisha Patra", role: "USG Administration", image: "/professional-finance-head-portrait.png" },
-  { name: "Charishma Kandregula", role: "USG Logistics", image: "/professional-tech-head-portrait.png" },
-  { name: "Shreya Dasari", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
-  { name: "Adit Kailash", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
+    { name: "Khaja Moizudiin", role: "Secretary General", image: "/Khaja.JPG" },
+    { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/Mahitha.jpg" },
+  { name: "Mohammed Abdul Rahaman", role: "Joint Director General", image: "/Rahaman.jpg" },
+  { name: "Sai Haneesh", role: "Joint Director General", image: "/Haneesh.jpg" },
+  { name: "Siddharth Naidu", role: "Charge D'Affairs", image: "/Sid.jpg" },
+  { name: "Praneeth Pothnak", role: "USG Finance", image: "/P.jpg" },
+  { name: "Amisha Patra", role: "USG Administration", image: "/Amisha.jpg" },
+  { name: "Charishma Kandregula", role: "USG Logistics", image: "/Charishma.jpeg" },
+  { name: "Shreya Dasari", role: "OC Head", image: "/Shreya.jpg" },
+  { name: "Adit Kailash", role: "OC Head", image: "/Adit.jpg" },
   ]
 
   return (
@@ -136,11 +136,12 @@ export default function CorePage() {
                 </div>
 
                 <CardHeader className="relative z-10 pb-4">
-                  <div className="aspect-square bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500">
+                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
                     <img
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-auto h-auto max-w-full max-h-full group-hover:scale-110 transition-transform duration-700"
+                      style={{ display: 'block' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
                   </div>
