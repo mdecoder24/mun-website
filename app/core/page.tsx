@@ -9,14 +9,14 @@ export default function CorePage() {
   const secretariatMembers = [
     { name: "Khaja Moizudiin", role: "Secretary General", image: "/professional-secretary-general-portrait.png" },
     { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/professional-director-general-portrait.png" },
-    { name: "Joint Director General", role: "Abdul Rahaman", image: "/professional-deputy-secretary-portrait.png" },
-    { name: "Joint Director General", role: "Sai Haneesh", image: "/professional-under-secretary-portrait.png" },
-    { name: "Charge D'Affairs", role: "Siddharth Naidu", image: "/professional-logistics-head-portrait.png" },
-    { name: "USG Finance", role: "Praneeth Pothnak", image: "/professional-pr-head-portrait.png" },
-    { name: "USG Administration", role: "Amisha Patra", image: "/professional-finance-head-portrait.png" },
-    { name: "USG Logistics", role: "Charishma", image: "/professional-tech-head-portrait.png" },
-    { name: "OC Head", role: "Shreya", image: "/professional-hospitality-head-portrait.png" },
-    { name: "OC Head", role: "Adit Kailash", image: "/professional-hospitality-head-portrait.png" },
+  { name: "Abdul Rahaman", role: "Joint Director General", image: "/professional-deputy-secretary-portrait.png" },
+  { name: "Sai Haneesh", role: "Joint Director General", image: "/professional-under-secretary-portrait.png" },
+  { name: "Siddharth Naidu", role: "Charge D'Affairs", image: "/professional-logistics-head-portrait.png" },
+  { name: "Praneeth Pothnak", role: "USG Finance", image: "/professional-pr-head-portrait.png" },
+  { name: "Amisha Patra", role: "USG Administration", image: "/professional-finance-head-portrait.png" },
+  { name: "Charishma", role: "USG Logistics", image: "/professional-tech-head-portrait.png" },
+  { name: "Shreya", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
+  { name: "Adit Kailash", role: "OC Head", image: "/professional-hospitality-head-portrait.png" },
   ]
 
   return (
