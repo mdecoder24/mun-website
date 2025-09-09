@@ -536,36 +536,6 @@ And that is a wrap!!`,
                   <source src="/mun.mp4" type="video/mp4" />
                 </video>
 
-                {/* MLRIT MUN 7th Edition Watermark */}
-                <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-sm rounded-xl p-4 border border-yellow-500/30 shadow-2xl">
-                  <div className="flex flex-col items-center space-y-2">
-                    {/* Golden Emblem - Inspired by the promotional poster */}
-                    <div className="relative">
-                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-lg border-2 border-yellow-300/50">
-                        {/* World Map Grid Lines */}
-                        <div className="w-8 h-8 relative">
-                          <div className="absolute inset-0 border border-yellow-300/60 rounded-full"></div>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-yellow-300/60"></div>
-                          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-yellow-300/60"></div>
-                          {/* Central Globe */}
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-yellow-200 to-yellow-800 rounded-full"></div>
-                        </div>
-                      </div>
-                      {/* Olive Branches Effect */}
-                      <div className="absolute -top-1 -left-1 w-2 h-2 bg-green-500/60 rounded-full"></div>
-                      <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500/60 rounded-full"></div>
-                    </div>
-                    {/* Text */}
-                    <div className="text-center">
-                      <div className="text-yellow-400 font-bold text-sm leading-tight tracking-wide">
-                        MLRIT MUN
-                      </div>
-                      <div className="text-white text-xs font-semibold">
-                        THE 7<sup>th</sup> EDITION
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Video overlay for better visual appeal */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none"></div>
