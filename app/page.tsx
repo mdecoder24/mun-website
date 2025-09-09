@@ -20,6 +20,7 @@ import {
   X,
   Phone,
   Mail,
+  Menu,
 } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 
@@ -27,6 +28,7 @@ export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showContactModal, setShowContactModal] = useState(false)
   const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const [timeLeft, setTimeLeft] = useState({
@@ -59,6 +61,18 @@ export default function MUNHomePage() {
 
     return () => clearInterval(timer)
   }, [])
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const animateCounters = () => {
@@ -280,15 +294,116 @@ And that is a wrap!!`,
                 The Core
               </a>
             </div>
-            <Button
-              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
-              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
-            >
-              Register Now
-            </Button>
+            <div className="flex items-center space-x-4">
+              <Button
+                className="hidden sm:flex bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
+                onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+              >
+                Register Now
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="lg:hidden p-2"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <Menu className="h-6 w-6 text-accent" />
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 lg:hidden animate-in fade-in duration-300"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <div 
+            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-background/95 backdrop-blur-xl border-l border-border/30 shadow-2xl animate-in slide-in-from-right duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex flex-col h-full">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between p-6 border-b border-border/30">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mun-5nOqcPQkC02w840MrhoBlvdSd1brWk.png"
+                    alt="MLRIT MUN Logo"
+                    className="h-8 w-8"
+                  />
+                  <span className="font-playfair font-bold text-lg text-accent">MLRIT MUN 2025</span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="h-8 w-8 p-0"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Mobile Menu Navigation */}
+              <div className="flex-1 p-6">
+                <nav className="space-y-6">
+                  <a
+                    href="/"
+                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Home
+                  </a>
+                  <a
+                    href="/about"
+                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    About Us
+                  </a>
+                  <a
+                    href="/sponsor"
+                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sponsor Us
+                  </a>
+                  <a
+                    href="/committees"
+                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Committees
+                  </a>
+                  <a
+                    href="/core"
+                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    The Core
+                  </a>
+                </nav>
+              </div>
+
+              {/* Mobile Menu Footer */}
+              <div className="p-6 border-t border-border/30">
+                <Button
+                  className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 font-semibold"
+                  onClick={() => {
+                    window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  <Trophy className="w-4 h-4 mr-2" />
+                  Register Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative py-24 lg:py-40 overflow-hidden">
