@@ -244,7 +244,7 @@ export default function CorePage() {
             {secretariatMembers.map((member, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden"
+                className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden h-full flex flex-col"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
@@ -255,24 +255,26 @@ export default function CorePage() {
                 </div>
 
                 <CardHeader className="relative z-10 pb-4">
-                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-6 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center h-80 w-full">
                     <img
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
-                      className="w-auto h-auto max-w-full max-h-full group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                       style={{ display: 'block' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
                   </div>
-                  <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/90 transition-colors text-center">
-                    {member.name}
-                  </CardTitle>
-                  <CardDescription className="text-center font-medium text-muted-foreground group-hover:text-foreground/80 transition-colors">
-                    {member.role}
-                  </CardDescription>
+                  <div className="text-center space-y-2">
+                    <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/90 transition-colors">
+                      {member.name}
+                    </CardTitle>
+                    <CardDescription className="font-medium text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                      {member.role}
+                    </CardDescription>
+                  </div>
                 </CardHeader>
 
-                <CardContent className="relative z-10 text-center">
+                <CardContent className="relative z-10 text-center mt-auto">
                   <div className="flex justify-center space-x-2 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <div
