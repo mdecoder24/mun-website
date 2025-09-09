@@ -29,6 +29,7 @@ export default function MUNHomePage() {
   const [showContactModal, setShowContactModal] = useState(false)
   const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSecretaryGeneralExpanded, setIsSecretaryGeneralExpanded] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const [timeLeft, setTimeLeft] = useState({
@@ -623,11 +624,67 @@ And that is a wrap!!`,
                     when I won my first award, I realized something Harvey Specter once said: "I don't get lucky. I make
                     my own luck."
                   </p>
+                  
+                  {/* Expanded Content */}
+                  {isSecretaryGeneralExpanded && (
+                    <div className="space-y-4 animate-in fade-in duration-500">
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        I didn't know the rules, I didn't know the jargon, all I knew was that this was going to be hard. And it was.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        I started with the toughest conferences. I stumbled. I froze mid-speech. I walked out of committee rooms wondering if I even belonged there. But here's the thing about walls: when you're backed against one, you don't retreat.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        Conference by conference, speech by speech, I grew. I learned how to listen before I spoke, how to fight when I had to, and how to stand my ground when the room thought otherwise. Slowly, I stopped competing to survive and started competing to win.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        I competed against people twice my age, with double my experience, and I still walked away with victories, not because I was the smartest person in the room, but because I refused to quit.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        And then came college. MLRIT became my home, and MLRITMUN became my battlefield. I served as the Deputy Secretary-General for the 6th Edition, and that experience changed me. It showed me what it means to lead, to create something bigger than yourself, and to give back to the very stage that raised you.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        Today, I stand here as the Secretary-General of the 7th Edition of MLRITMUN. It's surreal. A complete circle. From being the nervous kid clutching his placard in the last row to being the one signing this letter, inviting you to step into this arena.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        But this letter isn't about me. It's about you.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        If this is your first conference, you'll feel lost at times. You'll feel outnumbered, outpaced, maybe even outsmarted. But remember this: everyone starts where you are right now. Every award-winning delegate, every Executive Board member, every Secretary-General, we all began as that nervous first-timer with trembling hands and a heart that refused to slow down.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        And when that moment comes, when you feel like backing down, when you think your voice doesn't matter, remember this: "Winners don't make excuses when the other side plays the game."
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        Don't just show up. Make yourself impossible to ignore. Don't just speak. Make them listen. Don't wait for your chance. Take it.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        Because MLRITMUN isn't just a conference. It's an experience, a stage that has shaped leaders, built thinkers, and created friendships that last a lifetime. And now, it's your turn.
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        So, step into that committee room. Own your seat. Own your voice. Own your journey.
+                      </p>
+                    </div>
+                  )}
+                  
                   <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">
-                    Don't just show up. Make yourself impossible to ignore. I'll see you on the other side of the gavel.
+                    I'll see you on the other side of the gavel.
                   </p>
                 </div>
+                
+                {/* Read More/Less Button */}
                 <div className="mt-6 pt-4 border-t border-border/30">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setIsSecretaryGeneralExpanded(!isSecretaryGeneralExpanded)}
+                    className="text-accent hover:text-accent/80 hover:bg-accent/10 transition-all duration-300 font-medium"
+                  >
+                    {isSecretaryGeneralExpanded ? "Read Less" : "Read More"}
+                  </Button>
+                </div>
+                
+                <div className="mt-4">
                   <p className="text-sm text-muted-foreground font-medium">
                     - Khaja Moizuddin, Secretary General, MLRIT MUN 2025
                   </p>
