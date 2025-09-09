@@ -1115,7 +1115,7 @@ And that is a wrap!!`,
                   <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
                   </span>
-                  <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
+                  <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
