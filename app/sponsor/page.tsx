@@ -78,7 +78,7 @@ export default function SponsorPage() {
               <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50">
                 <Phone className="h-5 w-5 text-accent" />
                 <div>
-                  <p className="font-semibold">Praneeth</p>
+                  <p className="font-semibold">Praneeth Pothnak</p>
                   <p className="text-muted-foreground">9390174268</p>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function SponsorPage() {
                 <Mail className="h-5 w-5 text-accent" />
                 <div>
                   <p className="font-semibold">Email</p>
-                  <p className="text-muted-foreground">mun@mlrit.ac.in</p>
+                  <p className="text-muted-foreground">Praneethpothnak@gmail.com</p>
                 </div>
               </div>
             </CardContent>
