@@ -529,6 +529,8 @@ And that is a wrap!!`,
                   autoPlay
                   muted
                   loop
+                  playsInline
+                  webkit-playsinline="true"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
