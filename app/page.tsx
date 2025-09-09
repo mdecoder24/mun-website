@@ -601,34 +601,32 @@ And that is a wrap!!`,
               <CardContent className="relative z-10">
                 <div className="prose prose-invert max-w-none">
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "Dear Delegate,
+                    Dear Delegate,
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Take a deep breath. Because I know exactly where you are right now. The nervous energy, the constant
-                    doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
+                    Take a deep breath.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    When I stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of
-                    strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't
-                    even know existed.
+                    Because I know exactly where you are right now. The nervous energy, the constant doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "You break the whole goddamn thing down." Conference by conference, speech by speech, I grew. And
-                    when I won my first award, I realized something Harvey Specter once said: "I don't get lucky. I make
-                    my own luck."
+                    When I first stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't even know existed. I didn't know the rules, I didn't know the jargon, all I knew was that this was going to be hard. And it was.
                   </p>
                   
                   {/* Expanded Content */}
                   {isSecretaryGeneralExpanded && (
                     <div className="space-y-4 animate-in fade-in duration-500">
                       <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        I didn't know the rules, I didn't know the jargon, all I knew was that this was going to be hard. And it was.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
                         I started with the toughest conferences. I stumbled. I froze mid-speech. I walked out of committee rooms wondering if I even belonged there. But here's the thing about walls: when you're backed against one, you don't retreat.
                       </p>
                       <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        Conference by conference, speech by speech, I grew. I learned how to listen before I spoke, how to fight when I had to, and how to stand my ground when the room thought otherwise. Slowly, I stopped competing to survive and started competing to win.
+                        "You break the whole goddamn thing down."
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        Conference by conference, speech by speech, I grew. I learned how to listen before I spoke, how to fight when I had to, and how to stand my ground when the room thought otherwise. Slowly, I stopped competing to survive and started competing to win. And when I won my first award, I realized something Harvey Specter once said:
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        "I don't get lucky. I make my own luck."
                       </p>
                       <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
                         I competed against people twice my age, with double my experience, and I still walked away with victories, not because I was the smartest person in the room, but because I refused to quit.
@@ -646,7 +644,10 @@ And that is a wrap!!`,
                         If this is your first conference, you'll feel lost at times. You'll feel outnumbered, outpaced, maybe even outsmarted. But remember this: everyone starts where you are right now. Every award-winning delegate, every Executive Board member, every Secretary-General, we all began as that nervous first-timer with trembling hands and a heart that refused to slow down.
                       </p>
                       <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        And when that moment comes, when you feel like backing down, when you think your voice doesn't matter, remember this: "Winners don't make excuses when the other side plays the game."
+                        And when that moment comes, when you feel like backing down, when you think your voice doesn't matter, remember this:
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
+                        "Winners don't make excuses when the other side plays the game."
                       </p>
                       <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
                         Don't just show up. Make yourself impossible to ignore. Don't just speak. Make them listen. Don't wait for your chance. Take it.
@@ -679,7 +680,7 @@ And that is a wrap!!`,
                 
                 <div className="mt-4">
                   <p className="text-sm text-muted-foreground font-medium">
-                    - Khaja Moizuddin, Secretary General, MLRIT MUN 2025
+                    - Khaja Moizuddin, Secretary-General, MLRITMUN 2025 | 7th Edition
                   </p>
                 </div>
               </CardContent>
@@ -726,7 +727,7 @@ And that is a wrap!!`,
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/30">
                   <p className="text-sm text-muted-foreground font-medium">
-                    - R. Mahitha Reddy, Deputy Secretary General, MLRIT MUN 2025
+                    - R. Mahitha Reddy, Deputy Secretary General, MLRIT MUN 2025 | 7th Edition
                   </p>
                 </div>
               </CardContent>
