@@ -20,7 +20,6 @@ import {
   X,
   Phone,
   Mail,
-  Menu,
 } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 
@@ -28,8 +27,6 @@ export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showContactModal, setShowContactModal] = useState(false)
   const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isSecretaryGeneralExpanded, setIsSecretaryGeneralExpanded] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   const [timeLeft, setTimeLeft] = useState({
@@ -62,18 +59,6 @@ export default function MUNHomePage() {
 
     return () => clearInterval(timer)
   }, [])
-
-  // Close mobile menu on escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape)
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [isMobileMenuOpen])
 
   useEffect(() => {
     const animateCounters = () => {
@@ -260,7 +245,7 @@ And that is a wrap!!`,
                 <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text">
                   MLRIT MUN 2025
                 </span>
-                <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
+                <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-8">
@@ -295,116 +280,15 @@ And that is a wrap!!`,
                 The Core
               </a>
             </div>
-            <div className="flex items-center space-x-4">
-              <Button
-                className="hidden sm:flex bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
-                onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
-              >
-                Register Now
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="lg:hidden p-2"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle mobile menu"
-              >
-                <Menu className="h-6 w-6 text-accent" />
-              </Button>
-            </div>
+            <Button
+              className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
+              onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+            >
+              Register Now
+            </Button>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 lg:hidden animate-in fade-in duration-300"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          <div 
-            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-background/95 backdrop-blur-xl border-l border-border/30 shadow-2xl animate-in slide-in-from-right duration-300"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-col h-full">
-              {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-6 border-b border-border/30">
-                <div className="flex items-center space-x-3">
-                  <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mun-5nOqcPQkC02w840MrhoBlvdSd1brWk.png"
-                    alt="MLRIT MUN Logo"
-                    className="h-8 w-8"
-                  />
-                  <span className="font-playfair font-bold text-lg text-accent">MLRIT MUN 2025</span>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-8 w-8 p-0"
-                >
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-
-              {/* Mobile Menu Navigation */}
-              <div className="flex-1 p-6">
-                <nav className="space-y-6">
-                  <a
-                    href="/"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Home
-                  </a>
-                  <a
-                    href="/about"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About Us
-                  </a>
-                  <a
-                    href="/sponsor"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Sponsor Us
-                  </a>
-                  <a
-                    href="/committees"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Committees
-                  </a>
-                  <a
-                    href="/core"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    The Core
-                  </a>
-                </nav>
-              </div>
-
-              {/* Mobile Menu Footer */}
-              <div className="p-6 border-t border-border/30">
-                <Button
-                  className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 font-semibold"
-                  onClick={() => {
-                    window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")
-                    setIsMobileMenuOpen(false)
-                  }}
-                >
-                  <Trophy className="w-4 h-4 mr-2" />
-                  Register Now
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero Section */}
       <section className="relative py-24 lg:py-40 overflow-hidden">
@@ -523,14 +407,8 @@ And that is a wrap!!`,
                   ref={videoRef}
                   className="w-full h-full object-cover"
                   controls
-                  controlsList="nodownload"
-                  poster="/banner.png"
+                  poster="/professional-mun-conference-delegates-in-formal-at.png"
                   preload="metadata"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  webkit-playsinline="true"
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
@@ -538,6 +416,19 @@ And that is a wrap!!`,
                   <source src="/mun.mp4" type="video/mp4" />
                 </video>
 
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button
+                    onClick={toggleVideo}
+                    className="group/play bg-background/80 backdrop-blur-sm hover:bg-background/90 border border-border/30 hover:border-accent/50 rounded-full p-6 transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-accent/20"
+                    aria-label={isPlaying ? "Pause video" : "Play video"}
+                  >
+                    {isPlaying ? (
+                      <Pause className="h-12 w-12 text-accent group-hover/play:text-accent/80 transition-colors" />
+                    ) : (
+                      <Play className="h-12 w-12 text-accent group-hover/play:text-accent/80 transition-colors ml-1" />
+                    )}
+                  </button>
+                </div>
 
                 {/* Video overlay for better visual appeal */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none"></div>
@@ -601,86 +492,29 @@ And that is a wrap!!`,
               <CardContent className="relative z-10">
                 <div className="prose prose-invert max-w-none">
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Dear Delegate,
+                    "Dear Delegate,
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Take a deep breath.
+                    Take a deep breath. Because I know exactly where you are right now. The nervous energy, the constant
+                    doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Because I know exactly where you are right now. The nervous energy, the constant doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
+                    When I stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of
+                    strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't
+                    even know existed.
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    When I first stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't even know existed. I didn't know the rules, I didn't know the jargon, all I knew was that this was going to be hard. And it was.
+                    "You break the whole goddamn thing down." Conference by conference, speech by speech, I grew. And
+                    when I won my first award, I realized something Harvey Specter once said: "I don't get lucky. I make
+                    my own luck."
                   </p>
-                  
-                  {/* Expanded Content */}
-                  {isSecretaryGeneralExpanded && (
-                    <div className="space-y-4 animate-in fade-in duration-500">
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        I started with the toughest conferences. I stumbled. I froze mid-speech. I walked out of committee rooms wondering if I even belonged there. But here's the thing about walls: when you're backed against one, you don't retreat.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        "You break the whole goddamn thing down."
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        Conference by conference, speech by speech, I grew. I learned how to listen before I spoke, how to fight when I had to, and how to stand my ground when the room thought otherwise. Slowly, I stopped competing to survive and started competing to win. And when I won my first award, I realized something Harvey Specter once said:
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        "I don't get lucky. I make my own luck."
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        I competed against people twice my age, with double my experience, and I still walked away with victories, not because I was the smartest person in the room, but because I refused to quit.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        And then came college. MLRIT became my home, and MLRITMUN became my battlefield. I served as the Deputy Secretary-General for the 6th Edition, and that experience changed me. It showed me what it means to lead, to create something bigger than yourself, and to give back to the very stage that raised you.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        Today, I stand here as the Secretary-General of the 7th Edition of MLRITMUN. It's surreal. A complete circle. From being the nervous kid clutching his placard in the last row to being the one signing this letter, inviting you to step into this arena.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        But this letter isn't about me. It's about you.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        If this is your first conference, you'll feel lost at times. You'll feel outnumbered, outpaced, maybe even outsmarted. But remember this: everyone starts where you are right now. Every award-winning delegate, every Executive Board member, every Secretary-General, we all began as that nervous first-timer with trembling hands and a heart that refused to slow down.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        And when that moment comes, when you feel like backing down, when you think your voice doesn't matter, remember this:
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        "Winners don't make excuses when the other side plays the game."
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        Don't just show up. Make yourself impossible to ignore. Don't just speak. Make them listen. Don't wait for your chance. Take it.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        Because MLRITMUN isn't just a conference. It's an experience, a stage that has shaped leaders, built thinkers, and created friendships that last a lifetime. And now, it's your turn.
-                      </p>
-                      <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">
-                        So, step into that committee room. Own your seat. Own your voice. Own your journey.
-                      </p>
-                    </div>
-                  )}
-                  
                   <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">
-                    I'll see you on the other side of the gavel.
+                    Don't just show up. Make yourself impossible to ignore. I'll see you on the other side of the gavel.
                   </p>
                 </div>
-                
-                {/* Read More/Less Button */}
                 <div className="mt-6 pt-4 border-t border-border/30">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIsSecretaryGeneralExpanded(!isSecretaryGeneralExpanded)}
-                    className="text-accent hover:text-accent/80 hover:bg-accent/10 transition-all duration-300 font-medium"
-                  >
-                    {isSecretaryGeneralExpanded ? "Read Less" : "Read More"}
-                  </Button>
-                </div>
-                
-                <div className="mt-4">
                   <p className="text-sm text-muted-foreground font-medium">
-                    - Khaja Moizuddin, Secretary-General, MLRITMUN 2025 | 7th Edition
+                    - Khaja Moizuddin, Secretary General, MLRIT MUN 2025
                   </p>
                 </div>
               </CardContent>
@@ -727,7 +561,7 @@ And that is a wrap!!`,
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/30">
                   <p className="text-sm text-muted-foreground font-medium">
-                    - R. Mahitha Reddy, Deputy Secretary General, MLRIT MUN 2025 | 7th Edition
+                    - R. Mahitha Reddy, Deputy Secretary General, MLRIT MUN 2025
                   </p>
                 </div>
               </CardContent>
@@ -1088,7 +922,9 @@ And that is a wrap!!`,
               variant="outline"
               className="text-xl px-12 py-4 bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 font-semibold"
             >
-              Download Information Pack
+              <a href="Student.pdf" download>
+                Download Information Pack
+              </a>
             </Button>
           </div>
 
@@ -1109,7 +945,7 @@ And that is a wrap!!`,
                   <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
                   </span>
-                  <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
+                  <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
@@ -1176,8 +1012,8 @@ And that is a wrap!!`,
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="font-medium">mlritmun@mlrit.ac.in</li>
-                <li className="font-medium">Siddharth - +91 6303916919</li>
-                <li className="font-medium">Rahaman - +91 8019315542</li>
+                <li className="font-medium">+91 6303916919</li>
+                <li className="font-medium">+91 8367587388</li>
                 <li className="font-medium">MLR Institute of Technology</li>
                 <li className="font-medium">Dundigal, Hyderabad</li>
               </ul>
