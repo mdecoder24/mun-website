@@ -114,14 +114,18 @@ export default function SponsorPage() {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
               <Link href="/" className="relative group" aria-label="Go to Home">
-                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-12 w-12 object-contain animate-pulse group-hover:scale-105 transition-transform" />
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mun-5nOqcPQkC02w840MrhoBlvdSd1brWk.png"
+                  alt="MLRIT MUN Logo"
+                  className="h-12 w-12 animate-pulse group-hover:scale-105 transition-transform"
+                />
                 <Sparkles className="h-4 w-4 text-accent/60 absolute -top-1 -right-1 animate-bounce" />
               </Link>
               <div>
-                <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text">
                   MLRIT MUN 2025
                 </span>
-                <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
+                <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-8">
@@ -158,7 +162,7 @@ export default function SponsorPage() {
             <div className="lg:hidden flex items-center space-x-4">
               <Button
                 className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-4 py-2 font-semibold text-sm"
-                onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")}
+                onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
               >
                 Register
               </Button>
@@ -538,17 +542,34 @@ export default function SponsorPage() {
           <div className="grid md:grid-cols-4 gap-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-6">
-                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-10 w-10 object-contain" />
+                <img src="/mun-logo.png" alt="MLRIT MUN Logo" className="h-8 w-8" />
                 <div>
-                  <span className="font-playfair font-bold text-2xl bg-gradient-to-r from-accent to-foreground bg-clip-text text-transparent">
+                  <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
                   </span>
-                  <p className="text-xs text-muted-foreground font-medium"> RISE | RESOLVE | REFORM</p>
+                  <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed max-w-md">
-                Partner with us to support the next generation of global leaders and diplomatic innovators.
+              <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
+                Fostering diplomacy and international cooperation through Model United Nations. Building tomorrow's
+                global leaders through diplomatic simulation and cultural exchange.
               </p>
+
+              <div className="mt-6">
+                <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Location</h4>
+                <div className="rounded-lg overflow-hidden border border-border/30">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.1744261147364!2d78.43861427414626!3d17.594450196809095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b8eae5cd739%3A0x2aa927e931d97eee!2sMLR%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1743153982796!5m2!1sen!2sin"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="grayscale hover:grayscale-0 transition-all duration-300"
+                  ></iframe>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -567,7 +588,15 @@ export default function SponsorPage() {
                     href="/about"
                     className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
                   >
-                    About Us
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/committees"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
+                  >
+                    Committees
                   </Link>
                 </li>
                 <li>
@@ -580,10 +609,10 @@ export default function SponsorPage() {
                 </li>
                 <li>
                   <Link
-                    href="/committees"
+                    href="/sponsor"
                     className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
                   >
-                    Committees
+                    Sponsor Us
                   </Link>
                 </li>
               </ul>
@@ -594,9 +623,28 @@ export default function SponsorPage() {
               <ul className="space-y-3 text-muted-foreground">
                 <li className="font-medium">mlritmun@mlrit.ac.in</li>
                 <li className="font-medium">+91 6303916919</li>
-                <li className="font-medium">MLRIT Campus</li>
-                <li className="font-medium">Hyderabad, Telangana</li>
+                <li className="font-medium">+91 8367587388</li>
+                <li className="font-medium">MLR Institute of Technology</li>
+                <li className="font-medium">Dundigal, Hyderabad</li>
               </ul>
+
+              <div className="mt-6">
+                <h5 className="font-semibold mb-3 text-foreground">Follow Us</h5>
+                <div className="flex space-x-4">
+                  <a
+                    href="https://www.instagram.com/mlrit_mun/"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://www.instagram.com/mlrit_mun/"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
+                  >
+                    Instagram
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
