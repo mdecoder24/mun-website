@@ -26,6 +26,7 @@ import { useState, useRef, useEffect } from "react"
 
 export default function MUNHomePage() {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isSGLetterExpanded, setIsSGLetterExpanded] = useState(false)
   const [showContactModal, setShowContactModal] = useState(false)
   const [activeScheduleDay, setActiveScheduleDay] = useState<number | null>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -259,7 +260,7 @@ And that is a wrap!!`,
                 <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-primary bg-clip-text">
                   MLRIT MUN 2025
                 </span>
-                <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
+                <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
               </div>
             </div>
             <div className="hidden lg:flex items-center space-x-8">
@@ -603,27 +604,36 @@ And that is a wrap!!`,
                 </div>
               </CardHeader>
               <CardContent className="relative z-10">
-                <div className="prose prose-invert max-w-none">
-                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "Dear Delegate,
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    Take a deep breath. Because I know exactly where you are right now. The nervous energy, the constant
-                    doubts, the fear of "what if I mess up?" I've been there. In fact, I've lived there.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    When I stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of
-                    strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn't
-                    even know existed.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">
-                    "You break the whole goddamn thing down." Conference by conference, speech by speech, I grew. And
-                    when I won my first award, I realized something Harvey Specter once said: "I don't get lucky. I make
-                    my own luck."
-                  </p>
-                  <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">
-                    Don't just show up. Make yourself impossible to ignore. I'll see you on the other side of the gavel.
-                  </p>
+                <div className={`prose prose-invert max-w-none ${isSGLetterExpanded ? "" : "max-h-72 overflow-hidden"}`}>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">From the Desk of the Secretary-General<br/>MLRITMUN 2025 | 7th Edition</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Dear Delegate,<br/>Take a deep breath.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Because I know exactly where you are right now. The nervous energy, the constant doubts, the fear of “what if I mess up?” I’ve been there. In fact, I’ve lived there.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">When I first stepped into my first Model UN, I was just a kid in 8th grade, walking into a room full of strangers who spoke like seasoned diplomats, debated like lawyers, and commanded confidence I didn’t even know existed. I didn’t know the rules, I didn’t know the jargon, all I knew was that this was going to be hard. And it was.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">I started with the toughest conferences. I stumbled. I froze mid-speech. I walked out of committee rooms wondering if I even belonged there. But here’s the thing about walls: when you’re backed against one, you don’t retreat.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 italic group-hover:text-foreground/90 transition-colors duration-500">"You break the whole goddamn thing down."</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Conference by conference, speech by speech, I grew. I learned how to listen before I spoke, how to fight when I had to, and how to stand my ground when the room thought otherwise. Slowly, I stopped competing to survive and started competing to win. And when I won my first award, I realized something Harvey Specter once said:</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 italic group-hover:text-foreground/90 transition-colors duration-500">“I don’t get lucky. I make my own luck.”</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">I competed against people twice my age, with double my experience, and I still walked away with victories, not because I was the smartest person in the room, but because I refused to quit.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">And then came college. MLRIT became my home, and MLRITMUN became my battlefield. I served as the Deputy Secretary-General for the 6th Edition, and that experience changed me. It showed me what it means to lead, to create something bigger than yourself, and to give back to the very stage that raised you.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Today, I stand here as the Secretary-General of the 7th Edition of MLRITMUN. It’s surreal. A complete circle. From being the nervous kid clutching his placard in the last row to being the one signing this letter, inviting you to step into this arena.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">But this letter isn’t about me.<br/>It’s about you.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">If this is your first conference, you’ll feel lost at times. You’ll feel outnumbered, outpaced, maybe even outsmarted. But remember this: everyone starts where you are right now. Every award-winning delegate, every Executive Board member, every Secretary-General, we all began as that nervous first-timer with trembling hands and a heart that refused to slow down.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 italic group-hover:text-foreground/90 transition-colors duration-500">“Winners don’t make excuses when the other side plays the game.”</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Don’t just show up. Make yourself impossible to ignore.<br/>Don’t just speak. Make them listen.<br/>Don’t wait for your chance. Take it.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">Because MLRITMUN isn’t just a conference. It’s an experience, a stage that has shaped leaders, built thinkers, and created friendships that last a lifetime. And now, it’s your turn.</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4 group-hover:text-foreground/90 transition-colors duration-500">So, step into that committee room. Own your seat. Own your voice. Own your journey.</p>
+                  <p className="text-accent font-semibold group-hover:text-accent/90 transition-colors duration-500">I’ll see you on the other side of the gavel.</p>
+                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/90 transition-colors duration-500">Khaja Moizuddin, Secretary-General, MLRITMUN 2025</p>
+                </div>
+                <div className="mt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300"
+                    onClick={() => setIsSGLetterExpanded(!isSGLetterExpanded)}
+                  >
+                    {isSGLetterExpanded ? "Read Less" : "Read More"}
+                  </Button>
                 </div>
                 <div className="mt-6 pt-4 border-t border-border/30">
                   <p className="text-sm text-muted-foreground font-medium">
@@ -1064,7 +1074,7 @@ And that is a wrap!!`,
                   <span className="font-playfair font-bold text-2xl text-accent bg-gradient-to-r from-accent to-foreground bg-clip-text">
                     MLRIT MUN 2025
                   </span>
-                  <p className="text-xs text-muted-foreground font-medium">Diplomatic Excellence</p>
+                  <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
