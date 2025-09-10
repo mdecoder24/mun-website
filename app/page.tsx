@@ -1030,13 +1030,21 @@ And that is a wrap!!`,
               <Trophy className="w-5 h-5 mr-2" />
               Register Now
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-xl px-12 py-4 bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 font-semibold"
-            >
-              Download Information Pack
-            </Button>
+             <Button
+               size="lg"
+               variant="outline"
+               className="text-xl px-12 py-4 bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 hover:scale-105 font-semibold"
+               onClick={() => {
+                 const link = document.createElement('a')
+                 link.href = '/Student.pdf'
+                 link.download = 'MLRIT_MUN_2025_Information_Pack.pdf'
+                 document.body.appendChild(link)
+                 link.click()
+                 document.body.removeChild(link)
+               }}
+             >
+               Download Information Pack
+             </Button>
           </div>
 
           <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-2xl p-6 max-w-2xl mx-auto">
