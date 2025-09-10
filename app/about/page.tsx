@@ -2,10 +2,25 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Globe, Sparkles, BookOpen, Users, Target, Award, ArrowLeft } from "lucide-react"
+import { Globe, Sparkles, BookOpen, Users, Target, Award, ArrowLeft, Menu, X } from "lucide-react"
 import Link from "next/link"
+import { useState, useEffect } from "react"
 
 export default function AboutPage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMobileMenuOpen])
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -53,12 +68,124 @@ export default function AboutPage() {
                 Sponsor Us
               </Link>
             </div>
-            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank") }>
+            
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden flex items-center space-x-4">
+              <Button
+                className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-4 py-2 font-semibold text-sm"
+                onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")}
+              >
+                Register
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="h-10 w-10 p-0 hover:bg-accent/10"
+              >
+                <Menu className="h-6 w-6 text-accent" />
+              </Button>
+            </div>
+
+            {/* Desktop Register Button */}
+            <Button 
+              className="hidden lg:block bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold" 
+              onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")}
+            >
               Register Now
             </Button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden animate-in fade-in duration-300"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          <div 
+            className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-background/95 backdrop-blur-xl border-l border-border/30 shadow-2xl animate-in slide-in-from-right duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-6">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src="/mun-logo.png"
+                    alt="MLRIT MUN Logo"
+                    className="h-8 w-8"
+                  />
+                  <span className="font-playfair font-bold text-lg text-accent">
+                    MLRIT MUN 2025
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="h-8 w-8 p-0"
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Mobile Menu Links */}
+              <nav className="space-y-4">
+                <Link
+                  href="/"
+                  className="block py-3 px-4 text-lg font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-lg transition-all duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="block py-3 px-4 text-lg font-medium text-accent bg-accent/10 rounded-lg"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/core"
+                  className="block py-3 px-4 text-lg font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-lg transition-all duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  The Core
+                </Link>
+                <Link
+                  href="/committees"
+                  className="block py-3 px-4 text-lg font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-lg transition-all duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Committees
+                </Link>
+                <Link
+                  href="/sponsor"
+                  className="block py-3 px-4 text-lg font-medium text-muted-foreground hover:text-accent hover:bg-accent/10 rounded-lg transition-all duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Sponsor Us
+                </Link>
+              </nav>
+
+              {/* Mobile Menu Footer */}
+              <div className="mt-8 pt-6 border-t border-border/30">
+                <Button
+                  className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 font-semibold"
+                  onClick={() => {
+                    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")
+                    setIsMobileMenuOpen(false)
+                  }}
+                >
+                  Register Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
