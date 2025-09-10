@@ -22,7 +22,7 @@ export default function CorePage() {
   }, [isMobileMenuOpen])
 
   const secretariatMembers = [
-    { name: "Khaja Moizudiin", role: "Secretary General", image: "/Khaja.JPG" },
+    { name: "Khaja Moizuddin", role: "Secretary General", image: "/Khaja.JPG" },
     { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/Mahitha.jpg" },
   { name: "Mohammed Abdul Rahaman", role: "Joint Director General", image: "/Rahaman.jpg" },
   { name: "Sai Haneesh", role: "Joint Director General", image: "/Haneesh.jpg" },
