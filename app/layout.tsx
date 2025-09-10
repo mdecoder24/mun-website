@@ -18,10 +18,15 @@ const sourceSans = Source_Sans_3({
 })
 
 export const metadata: Metadata = {
-  title: "MUN Conference 2024 | Model United Nations",
+  title: "MLRIT MUN 2025",
   description:
     "Join us for an inspiring Model United Nations conference fostering diplomacy, debate, and international cooperation.",
   generator: "v0.app",
+  icons: {
+    icon: "/mun-logo.png",
+    shortcut: "/mun-logo.png",
+    apple: "/mun-logo.png",
+  },
 }
 
 export default function RootLayout({
