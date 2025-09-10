@@ -2,25 +2,10 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Globe, Sparkles, Users, Star, ArrowLeft, Crown, Award, Target, Menu, X, Trophy } from "lucide-react"
+import { Globe, Sparkles, Users, Star, ArrowLeft, Crown, Award, Target } from "lucide-react"
 import Link from "next/link"
-import { useState, useEffect } from "react"
 
 export default function CorePage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  // Close mobile menu on escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
-        setIsMobileMenuOpen(false)
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape)
-    return () => document.removeEventListener('keydown', handleEscape)
-  }, [isMobileMenuOpen])
-
   const secretariatMembers = [
     { name: "Khaja Moizudiin", role: "Secretary General", image: "/Khaja.JPG" },
     { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/Mahitha.jpg" },
@@ -81,116 +66,12 @@ export default function CorePage() {
                 Sponsor Us
               </Link>
             </div>
-            <div className="flex items-center space-x-4">
-              <Button
-                className="hidden sm:flex bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
-                onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")}
-              >
-                Register Now
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="lg:hidden p-2"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Toggle mobile menu"
-              >
-                <Menu className="h-6 w-6 text-accent" />
-              </Button>
-            </div>
+            <Button className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold" onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank") }>
+              Register Now
+            </Button>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 lg:hidden animate-in fade-in duration-300"
-          onClick={() => setIsMobileMenuOpen(false)}
-        >
-          <div 
-            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-background/95 backdrop-blur-xl border-l border-border/30 shadow-2xl animate-in slide-in-from-right duration-300"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex flex-col h-full">
-              {/* Mobile Menu Header */}
-              <div className="flex items-center justify-between p-6 border-b border-border/30">
-                <div className="flex items-center space-x-3">
-                  <img
-                    src="/mun-logo.png"
-                    alt="MLRIT MUN Logo"
-                    className="h-8 w-8"
-                  />
-                  <span className="font-playfair font-bold text-lg text-accent">MLRIT MUN 2025</span>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="h-8 w-8 p-0"
-                >
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-
-              {/* Mobile Menu Navigation */}
-              <div className="flex-1 p-6">
-                <nav className="space-y-6">
-                  <Link
-                    href="/"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    href="/sponsor"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Sponsor Us
-                  </Link>
-                  <Link
-                    href="/committees"
-                    className="block text-lg font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Committees
-                  </Link>
-                  <Link
-                    href="/core"
-                    className="block text-lg font-medium text-accent transition-colors duration-300 py-2"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    The Core
-                  </Link>
-                </nav>
-              </div>
-
-              {/* Mobile Menu Footer */}
-              <div className="p-6 border-t border-border/30">
-                <Button
-                  className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 font-semibold"
-                  onClick={() => {
-                    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")
-                    setIsMobileMenuOpen(false)
-                  }}
-                >
-                  <Trophy className="w-4 h-4 mr-2" />
-                  Register Now
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
@@ -244,7 +125,7 @@ export default function CorePage() {
             {secretariatMembers.map((member, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden h-full flex flex-col"
+                className="group hover:shadow-2xl hover:shadow-accent/20 transition-all duration-700 hover:scale-105 bg-gradient-to-br from-card/90 via-card/80 to-card/70 backdrop-blur-sm border-border/30 overflow-hidden"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
@@ -255,26 +136,24 @@ export default function CorePage() {
                 </div>
 
                 <CardHeader className="relative z-10 pb-4">
-                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-6 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center h-80 w-full">
+                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
                     <img
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
-                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                      className="w-auto h-auto max-w-full max-h-full group-hover:scale-110 transition-transform duration-700"
                       style={{ display: 'block' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
                   </div>
-                  <div className="text-center space-y-2">
-                    <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/90 transition-colors">
-                      {member.name}
-                    </CardTitle>
-                    <CardDescription className="font-medium text-muted-foreground group-hover:text-foreground/80 transition-colors">
-                      {member.role}
-                    </CardDescription>
-                  </div>
+                  <CardTitle className="font-playfair text-xl text-accent group-hover:text-accent/90 transition-colors text-center">
+                    {member.name}
+                  </CardTitle>
+                  <CardDescription className="text-center font-medium text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                    {member.role}
+                  </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10 text-center mt-auto">
+                <CardContent className="relative z-10 text-center">
                   <div className="flex justify-center space-x-2 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <div
@@ -410,26 +289,10 @@ export default function CorePage() {
                   <p className="text-xs text-muted-foreground font-medium">RISE | RESOLVE | REFORM</p>
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
-                Fostering diplomacy and international cooperation through Model United Nations. Building tomorrow's
-                global leaders through diplomatic simulation and cultural exchange.
+              <p className="text-muted-foreground leading-relaxed max-w-md">
+                Led by our exceptional secretariat team - Building tomorrow's global leaders through diplomatic
+                excellence.
               </p>
-
-              <div className="mt-6">
-                <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Location</h4>
-                <div className="rounded-lg overflow-hidden border border-border/30">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3803.1744261147364!2d78.43861427414626!3d17.594450196809095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b8eae5cd739%3A0x2aa927e931d97eee!2sMLR%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1743153982796!5m2!1sen!2sin"
-                    width="100%"
-                    height="200"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="grayscale hover:grayscale-0 transition-all duration-300"
-                  ></iframe>
-                </div>
-              </div>
             </div>
 
             <div>
@@ -474,29 +337,10 @@ export default function CorePage() {
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="font-medium">mlritmun@mlrit.ac.in</li>
-                <li className="font-medium">Siddharth - +91 6303916919</li>
-                <li className="font-medium">Rahaman - +91 8019315542</li>
-                <li className="font-medium">MLR Institute of Technology</li>
-                <li className="font-medium">Dundigal, Hyderabad</li>
+                <li className="font-medium">+91 6303916919</li>
+                <li className="font-medium">MLRIT Campus</li>
+                <li className="font-medium">Hyderabad, Telangana</li>
               </ul>
-
-              <div className="mt-6">
-                <h5 className="font-semibold mb-3 text-foreground">Follow Us</h5>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://www.instagram.com/mlrit_mun/"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href="https://www.instagram.com/mlrit_mun/"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 font-medium"
-                  >
-                    Instagram
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
 
