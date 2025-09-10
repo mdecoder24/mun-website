@@ -526,32 +526,22 @@ And that is a wrap!!`,
             <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
             <div className="relative bg-card/80 backdrop-blur-sm border border-border/30 rounded-2xl p-4 shadow-2xl hover:shadow-accent/10 transition-all duration-500">
               <div className="aspect-video bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-500">
-                <video
-                  ref={videoRef}
-                  className="w-full h-full object-cover"
-                  controls
-                  poster="/professional-mun-conference-delegates-in-formal-at.png"
-                  preload="metadata"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                >
-                  <source src="/mun.mp4" type="video/mp4" />
-                </video>
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button
-                    onClick={toggleVideo}
-                    className="group/play bg-background/80 backdrop-blur-sm hover:bg-background/90 border border-border/30 hover:border-accent/50 rounded-full p-6 transition-all duration-300 hover:scale-110 shadow-2xl hover:shadow-accent/20"
-                    aria-label={isPlaying ? "Pause video" : "Play video"}
-                  >
-                    {isPlaying ? (
-                      <Pause className="h-12 w-12 text-accent group-hover/play:text-accent/80 transition-colors" />
-                    ) : (
-                      <Play className="h-12 w-12 text-accent group-hover/play:text-accent/80 transition-colors ml-1" />
-                    )}
-                  </button>
-                </div>
+                 <video
+                   ref={videoRef}
+                   className="w-full h-full object-cover"
+                   controls
+                   autoPlay
+                   muted
+                   loop
+                   playsInline
+                   poster="/banner.png"
+                   preload="metadata"
+                   onPlay={() => setIsPlaying(true)}
+                   onPause={() => setIsPlaying(false)}
+                   onEnded={() => setIsPlaying(false)}
+                 >
+                   <source src="/mun.mp4" type="video/mp4" />
+                 </video>
 
                 {/* Video overlay for better visual appeal */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none"></div>
