@@ -622,8 +622,8 @@ export default function SponsorPage() {
               <h4 className="font-playfair font-bold text-lg mb-4 text-accent">Contact</h4>
               <ul className="space-y-3 text-muted-foreground">
                 <li className="font-medium">mlritmun@mlrit.ac.in</li>
-                <li className="font-medium">+91 6303916919</li>
-                <li className="font-medium">+91 8367587388</li>
+                <li className="font-medium">Siddharth - +91 6303916919</li>
+                <li className="font-medium">Rahaman - +91 8367587388</li>
                 <li className="font-medium">MLR Institute of Technology</li>
                 <li className="font-medium">Dundigal, Hyderabad</li>
               </ul>
