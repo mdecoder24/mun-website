@@ -23,9 +23,9 @@ export default function CorePage() {
 
   const secretariatMembers = [
     { name: "Khaja Moizuddin", role: "Secretary General", image: "/Khaja.JPG" },
-    { name: "Mahitha Reddy", role: "Deputy Secretary General", image: "/Mahitha.jpg" },
+    { name: "R Mahitha Reddy", role: "Deputy Secretary General", image: "/Mahitha.jpg" },
   { name: "Mohammed Abdul Rahaman", role: "Joint Director General", image: "/Rahaman.jpg" },
-  { name: "Sai Haneesh", role: "Joint Director General", image: "/Haneesh.jpg" },
+  { name: "Kollipara Sai Haneesh", role: "Joint Director General", image: "/Haneesh.jpg" },
   { name: "Siddharth Naidu", role: "Charge D'Affairs", image: "/Sid.jpg" },
   { name: "Praneeth Pothnak", role: "USG Finance", image: "/P.jpg" },
   { name: "Amisha Patra", role: "USG Administration", image: "/Amisha.jpg" },
