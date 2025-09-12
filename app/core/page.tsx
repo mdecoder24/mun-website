@@ -267,12 +267,11 @@ export default function CorePage() {
                 </div>
 
                 <CardHeader className="relative z-10 pb-4">
-                  <div className="bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                  <div className="aspect-square bg-gradient-to-br from-accent/20 via-background/50 to-accent/10 rounded-xl overflow-hidden mb-4 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
                     <img
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
-                      className="w-auto h-auto max-w-full max-h-full group-hover:scale-110 transition-transform duration-700"
-                      style={{ display: 'block' }}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
                   </div>
