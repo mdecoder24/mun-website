@@ -521,7 +521,7 @@ export default function AboutPage() {
 
           <div className="border-t border-border/30 mt-12 pt-8 text-center">
             <p className="text-muted-foreground font-medium">
-              &copy; 2025 MLRIT Model United Nations Conference. All rights reserved.
+              &copy; @2025 MLRIT Model United Nations Conference. All rights reserved.
             </p>
           </div>
         </div>
