@@ -24,6 +24,7 @@ import { useState, useEffect } from "react"
 export default function SponsorPage() {
   const [showContactModal, setShowContactModal] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showRegistrationOptions, setShowRegistrationOptions] = useState(false)
 
   // Close mobile menu on escape key
   useEffect(() => {
@@ -79,6 +80,42 @@ export default function SponsorPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Registration Options Modal */}
+      {showRegistrationOptions && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle className="text-xl text-accent">Choose Registration Type</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowRegistrationOptions(false)} className="h-8 w-8 p-0">
+                <X className="h-4 w-4" />
+              </Button>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              <Button
+                size="lg"
+                className="w-full"
+                onClick={() => {
+                  window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")
+                  setShowRegistrationOptions(false)
+                }}
+              >
+                Register as Delegate
+              </Button>
+              <Button
+                size="lg"
+                className="w-full"
+                onClick={() => {
+                  window.open("https://docs.google.com/forms/d/e/1FAIpQLSeIGr7p2_lsYcaKlYMjL9n7rZw7exnuCziLvkKtv5c-GGO19w/viewform", "_blank")
+                  setShowRegistrationOptions(false)
+                }}
+              >
+                Register as Delegation
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {showContactModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30">
@@ -162,7 +199,7 @@ export default function SponsorPage() {
             <div className="lg:hidden flex items-center space-x-4">
               <Button
                 className="bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-4 py-2 font-semibold text-sm"
-                onClick={() => window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")}
+                onClick={() => setShowRegistrationOptions(true)}
               >
                 Register
               </Button>
@@ -179,7 +216,7 @@ export default function SponsorPage() {
             {/* Desktop Register Button */}
             <Button
               className="hidden lg:block bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 font-semibold"
-              onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")}
+              onClick={() => setShowRegistrationOptions(true)}
             >
               Register Now
             </Button>
@@ -264,7 +301,7 @@ export default function SponsorPage() {
                 <Button
                   className="w-full bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 py-3 font-semibold"
                   onClick={() => {
-                    window.open("https://docs.google.com/forms/d/e/1FAIpQLSfaAzAT9FqAVt8aGVJqQ9Ak2m7g7yP-OybQ45dMMLnk_BCHmA/viewform?usp=send_form", "_blank")
+                    setShowRegistrationOptions(true)
                     setIsMobileMenuOpen(false)
                   }}
                 >
