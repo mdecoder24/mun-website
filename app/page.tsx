@@ -1095,7 +1095,7 @@ And that is a wrap!!`,
           </div>
 
           <div className="bg-card/50 backdrop-blur-sm border border-border/30 rounded-2xl p-6 max-w-2xl mx-auto">
-            <p className="text-muted-foreground font-medium">• Payment plans accepted</p>
+            <p className="text-muted-foreground font-medium">• All Payment plans accepted</p>
           </div>
         </div>
       </section>
