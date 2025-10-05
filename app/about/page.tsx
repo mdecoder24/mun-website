@@ -39,7 +39,7 @@ export default function AboutPage() {
                 size="lg"
                 className="w-full"
                 onClick={() => {
-                  window.open("https://forms.gle/jv1ffS59ZWnWPUzk8", "_blank")
+                  window.open("https://docs.google.com/forms/d/e/1FAIpQLSfUxaExYveXlZYTfQHh2B2IYEktVFbA0WUPTWVjn2ZKbWlm0Q/viewform", "_blank")
                   setShowRegistrationOptions(false)
                 }}
               >
