@@ -8,7 +8,7 @@ import { useState, useEffect } from "react"
 
 export default function CommitteesPage() {
   const [showSourcesModal, setShowSourcesModal] = useState(false)
-  const [showEBModal, setShowEBModal] = useState(false)
+  const [selectedEB, setSelectedEB] = useState<any>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showRegistrationOptions, setShowRegistrationOptions] = useState(false)
 
@@ -32,6 +32,23 @@ export default function CommitteesPage() {
       description:
         "Engage in high-level political discourse addressing India's democratic challenges, electoral reforms, and governance issues. Delegates will represent various political parties and work towards consensus on critical national matters.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png",
+      eb: [
+        {
+          name: "Afnaan Omer Khan",
+          position: "Speaker",
+          image: "/Afnaan Omer Khan - AIPPM Speaker_.png",
+        },
+        {
+          name: "Adnaan Farooqui",
+          position: "Deputy Speaker",
+          image: "/Adnaan Farooqui - AIPPM Deputy Speaker_.png",
+        },
+        {
+          name: "Nishika Chowdhary",
+          position: "Rapporteur",
+          image: "/Nishika Chowdhary - AIPPM Rapporteur_.png",
+        },
+      ],
     },
     {
       name: "UNCSW",
@@ -40,6 +57,18 @@ export default function CommitteesPage() {
       description:
         "Address gender equality challenges in the modern world, focusing on women's economic empowerment, digital inclusion, and breaking barriers in technology and entrepreneurship sectors.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png",
+      eb: [
+        {
+          name: "Aprameya",
+          position: "Chair",
+          image: "/Aprameya - UNCSW Chair.png",
+        },
+        {
+          name: "Sanjitha Moka",
+          position: "Vice Chair",
+          image: "/Sanjitha Moka - UNCSW Vice-chair_.png",
+        },
+      ],
     },
     {
       name: "UNODC",
@@ -48,6 +77,18 @@ export default function CommitteesPage() {
       description:
         "Tackle the growing threats of organized crime, drug trafficking, and cybercrime. Develop comprehensive strategies for international cooperation in law enforcement and crime prevention.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png",
+      eb: [
+        {
+          name: "Mohammed Faraazuddin",
+          position: "Chair",
+          image: "/Mohammed Faraazuddin - UNODC Chair.png",
+        },
+        {
+          name: "Dhanush Malhotra",
+          position: "Vice Chair",
+          image: "/Dhanush Malhotra - UNODC Vice-chair_.png",
+        },
+      ],
     },
     {
       name: "IP",
@@ -56,6 +97,23 @@ export default function CommitteesPage() {
       description:
         "Experience journalism from the frontlines of diplomacy. Cover committee proceedings, conduct interviews, and report on the conference while addressing challenges of media ethics and press freedom.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ip-H8Zy0XHG9PHcU4CRGWNomSiA8XK8zf.png",
+      eb: [
+        {
+          name: "Chetana Chintapally",
+          position: "Co IP Head",
+          image: "/Chetana Chintapally - Co IP Head_.png",
+        },
+        {
+          name: "Kumara Shivanand",
+          position: "Co IP Head",
+          image: "/Kumara Shivanand - Co IP Head_.png",
+        },
+        {
+          name: "Sneha Malarouthu",
+          position: "Director of Photography",
+          image: "/Sneha Malarouthu - Director of Photography_.png",
+        },
+      ],
     },
     {
       name: "UNHRC",
@@ -64,6 +122,19 @@ export default function CommitteesPage() {
       description:
         "Address human rights violations in conflict areas and develop frameworks for protecting civilians, ensuring accountability, and supporting post-conflict reconstruction and reconciliation.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png",
+      eb: [
+        {
+          name: "Neela Siddartha",
+          position: "Chair",
+          image: "/Neela Siddartha - UNHRC Chair_.png",
+        },
+        {
+          name: "Shyam",
+          position: "Vice Chair",
+          image: "/Shyam - UNHRC Vice-chair_.png",
+          className: "object-bottom",
+        },
+      ],
     },
     {
       name: "DISEC",
@@ -72,6 +143,18 @@ export default function CommitteesPage() {
       description:
         "Focus on global disarmament efforts, nuclear non-proliferation, and emerging security challenges including space militarization and cyber warfare threats to international stability.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png",
+      eb: [
+        {
+          name: "Rishab Rachakonda",
+          position: "Chair",
+          image: "/Rishab - DISEC Chair_.png",
+        },
+        {
+          name: "V Jishnu",
+          position: "Vice Chair",
+          image: "/V Jishnu - UNCSW Rapporteur_.png",
+        },
+      ],
     },
   ]
 
@@ -135,21 +218,33 @@ export default function CommitteesPage() {
       )}
 
       {/* EB Modal */}
-      {showEBModal && (
+      {selectedEB && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30 animate-in fade-in-0 zoom-in-95 duration-300">
+          <Card className="w-full max-w-4xl bg-card/95 backdrop-blur-sm border-border/30 animate-in fade-in-0 zoom-in-95 duration-300">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="text-xl text-accent">Executive Board</CardTitle>
-              <Button variant="ghost" size="sm" onClick={() => setShowEBModal(false)} className="h-8 w-8 p-0">
+              <Button variant="ghost" size="sm" onClick={() => setSelectedEB(null)} className="h-8 w-8 p-0">
                 <X className="h-4 w-4" />
               </Button>
             </CardHeader>
-            <CardContent className="text-center py-8">
-              <Users className="h-16 w-16 text-accent mx-auto mb-4 animate-pulse" />
-              <h3 className="text-2xl font-bold text-accent mb-2">To be revealed</h3>
-              <p className="text-muted-foreground">
-                Executive Board members and committee chairs will be announced soon.
-              </p>
+            <CardContent className="py-8">
+              <div
+                className={`grid grid-cols-1 ${
+                  selectedEB.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+                } gap-6`}
+              >
+                {selectedEB.map((member: any, index: number) => (
+                  <div className="text-center" key={index}>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className={`w-48 h-48 object-cover rounded-lg mx-auto mb-4 ${member.className || ""}`}
+                    />
+                    <h3 className="text-xl font-bold text-accent mb-1">{member.name}</h3>
+                    <p className="text-muted-foreground">{member.position}</p>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -414,10 +509,10 @@ export default function CommitteesPage() {
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={() => setShowEBModal(true)}
+                        onClick={() => setSelectedEB(committee.eb)}
                         className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
                       >
-                        EB
+                        Executive Board
                       </Button>
                     </div>
                     <div className="flex space-x-2">
