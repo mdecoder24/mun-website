@@ -68,6 +68,11 @@ export default function CommitteesPage() {
           position: "Vice Chair",
           image: "/Sanjitha Moka - UNCSW Vice-chair_.png",
         },
+        {
+          name: "Abhinav Agarwal",
+          position: "Rapporteur",
+          image: "/Abhinav UNCSW.jpg",
+        },
       ],
     },
     {
@@ -84,9 +89,9 @@ export default function CommitteesPage() {
           image: "/Mohammed Faraazuddin - UNODC Chair.png",
         },
         {
-          name: "Dhanush Malhotra",
+          name: "Soha Afneen",
           position: "Vice Chair",
-          image: "/Dhanush Malhotra - UNODC Vice-chair_.png",
+          image: "/Soha UNODC.jpg",
         },
       ],
     },
