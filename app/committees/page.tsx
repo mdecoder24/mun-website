@@ -219,7 +219,7 @@ export default function CommitteesPage() {
             <CardContent className="grid gap-4">
               <a href="/BG guide IP.pdf" download>
                 <Button size="lg" className="w-full">
-                  IP Guide
+                  Photographer Guide
                 </Button>
               </a>
               <a href="/IP 2.pdf" download>
