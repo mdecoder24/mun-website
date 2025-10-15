@@ -30,7 +30,7 @@ export default function CommitteesPage() {
       fullName: "All India Political Parties Meet",
       agenda: "Deliberation on the Right to Information Act, 2005 – Assessing the Erosion of Transparency and Its Implications for Constitutional Values",
       description:
-        "Engage in high-level political discourse addressing India's democratic challenges, electoral reforms, and governance issues. Delegates will represent various political parties and work towards consensus on critical national matters.",
+        "Engage in High-level Political Discourse Addressing India's Democratic Challenges, Electoral Reforms, and Governance Issues. Delegates Will Represent Various Political Parties and Work Towards Consensus on Critical National Matters.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png",
       eb: [
         {
@@ -53,9 +53,9 @@ export default function CommitteesPage() {
     {
       name: "UNCSW",
       fullName: "United Nations Commission on the Status of Women",
-      agenda: "Guaranteeing women's access to quality healthcare with special emphasis on reproductive rights",
+      agenda: "Guaranteeing Women's Access to Quality Healthcare with Special Emphasis on Reproductive Rights",
       description:
-        "Address gender equality challenges in the modern world, focusing on women's economic empowerment, digital inclusion, and breaking barriers in technology and entrepreneurship sectors.",
+        "Address Gender Equality Challenges in the Modern World, Focusing on Women's Economic Empowerment, Digital Inclusion, and Breaking Barriers in Technology and Entrepreneurship Sectors.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png",
       eb: [
         {
@@ -80,7 +80,7 @@ export default function CommitteesPage() {
       fullName: "United Nations Office on Drugs and Crime",
       agenda: "Developing a Coordinated Global Response to the Technological Evolution of Financial, Drug, and Terror Networks.",
       description:
-        "Tackle the growing threats of organized crime, drug trafficking, and cybercrime. Develop comprehensive strategies for international cooperation in law enforcement and crime prevention.",
+        "Tackle the Growing Threats of Organized Crime, Drug Trafficking, and Cybercrime. Develop Comprehensive Strategies for International Cooperation in Law Enforcement and Crime Prevention.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png",
       eb: [
         {
@@ -100,7 +100,7 @@ export default function CommitteesPage() {
       fullName: "International Press",
       agenda: "Media Ethics and Press Freedom in the Digital Era",
       description:
-        "Experience journalism from the frontlines of diplomacy. Cover committee proceedings, conduct interviews, and report on the conference while addressing challenges of media ethics and press freedom.",
+        "Experience Journalism from the Frontlines of Diplomacy. Cover Committee Proceedings, Conduct Interviews, and Report on the Conference While Addressing Challenges of Media Ethics and Press Freedom.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ip-H8Zy0XHG9PHcU4CRGWNomSiA8XK8zf.png",
       eb: [
         {
@@ -123,9 +123,9 @@ export default function CommitteesPage() {
     {
       name: "UNHRC",
       fullName: "United Nations Human Rights Council",
-      agenda: "Addressing stereotyping, misrepresentation, censorship, and discriminatory narratives affecting marginalized groups, with special emphasis on fostering diversity, inclusion, and accountability in digital age",
+      agenda: "Addressing Stereotyping, Misrepresentation, Censorship, and Discriminatory Narratives Affecting Marginalized Groups, with Special Emphasis on Fostering Diversity, Inclusion, and Accountability in Digital Age",
       description:
-        "Address human rights violations in conflict areas and develop frameworks for protecting civilians, ensuring accountability, and supporting post-conflict reconstruction and reconciliation.",
+        "Address Human Rights Violations in Conflict Areas and Develop Frameworks for Protecting Civilians, Ensuring Accountability, and Supporting Post-Conflict Reconstruction and Reconciliation.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png",
       eb: [
         {
@@ -146,7 +146,7 @@ export default function CommitteesPage() {
       fullName: "Disarmament and International Security Committee",
       agenda: "Establishing a Global Governance Mechanism for the Production and Deployment of Hypersonic Missile Systems and Lethal Unmanned Aerial Vehicles (UAVs).",
       description:
-        "Focus on global disarmament efforts, nuclear non-proliferation, and emerging security challenges including space militarization and cyber warfare threats to international stability.",
+        "Focus on Global Disarmament Efforts, Nuclear Non-Proliferation, and Emerging Security Challenges Including Space Militarization and Cyber Warfare Threats to International Stability.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png",
       eb: [
         {
