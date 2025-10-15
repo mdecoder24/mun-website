@@ -7,7 +7,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 
 export default function CommitteesPage() {
-  const [showBgGuideModal, setShowBgGuideModal] = useState(false)
+  const [showIpGuideModal, setShowIpGuideModal] = useState(false)
   const [selectedEB, setSelectedEB] = useState<any>(null)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [showRegistrationOptions, setShowRegistrationOptions] = useState(false)
@@ -32,6 +32,7 @@ export default function CommitteesPage() {
       description:
         "Engage in high-level political discourse addressing India's democratic challenges, electoral reforms, and governance issues. Delegates will represent various political parties and work towards consensus on critical national matters.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aippm-RFoGqARrFsSeumgCxLjb83K9wNUKXU.png",
+      bgGuide: "/BG GUIDE AIPPM.pdf",
       eb: [
         {
           name: "Afnaan Omer Khan",
@@ -57,6 +58,7 @@ export default function CommitteesPage() {
       description:
         "Address gender equality challenges in the modern world, focusing on women's economic empowerment, digital inclusion, and breaking barriers in technology and entrepreneurship sectors.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/uncsw-7yRl0ZQyrTDecHQUVzgAquh8G6HIeY.png",
+      bgGuide: "/BG GUIDE UNCSW.pdf",
       eb: [
         {
           name: "Aprameya",
@@ -77,6 +79,7 @@ export default function CommitteesPage() {
       description:
         "Tackle the growing threats of organized crime, drug trafficking, and cybercrime. Develop comprehensive strategies for international cooperation in law enforcement and crime prevention.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unodc-XIAzAv1f7C4Dni6HytWWjh4Wxn2UZu.png",
+      bgGuide: "/UNODC guide.pdf",
       eb: [
         {
           name: "Mohammed Faraazuddin",
@@ -122,6 +125,7 @@ export default function CommitteesPage() {
       description:
         "Address human rights violations in conflict areas and develop frameworks for protecting civilians, ensuring accountability, and supporting post-conflict reconstruction and reconciliation.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unhrc-byLatfzVCMduZlfSvhZTUMCcBAVldB.png",
+      bgGuide: "/UNHRC BG GUIDE.pdf",
       eb: [
         {
           name: "Neela Siddartha",
@@ -143,6 +147,7 @@ export default function CommitteesPage() {
       description:
         "Focus on global disarmament efforts, nuclear non-proliferation, and emerging security challenges including space militarization and cyber warfare threats to international stability.",
       logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/disec-SZO3ahXNrA9DkZbUSp9j6OOOGFpPsH.png",
+      bgGuide: "/BG GUIDE DISEC.pdf",
       eb: [
         {
           name: "Rishab Rachakonda",
@@ -196,22 +201,27 @@ export default function CommitteesPage() {
         </div>
       )}
 
-      {/* BG Guide Modal */}
-      {showBgGuideModal && (
+      {/* IP Guide Modal */}
+      {showIpGuideModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <Card className="w-full max-w-md bg-card/95 backdrop-blur-sm border-border/30 animate-in fade-in-0 zoom-in-95 duration-300">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-xl text-accent">Committee BG Guide</CardTitle>
-              <Button variant="ghost" size="sm" onClick={() => setShowBgGuideModal(false)} className="h-8 w-8 p-0">
+              <CardTitle className="text-xl text-accent">International Press Guides</CardTitle>
+              <Button variant="ghost" size="sm" onClick={() => setShowIpGuideModal(false)} className="h-8 w-8 p-0">
                 <X className="h-4 w-4" />
               </Button>
             </CardHeader>
-            <CardContent className="text-center py-8">
-              <FileText className="h-16 w-16 text-accent mx-auto mb-4 animate-pulse" />
-              <h3 className="text-2xl font-bold text-accent mb-2">To be revealed</h3>
-              <p className="text-muted-foreground">
-                Committee background guides will be shared closer to the conference date.
-              </p>
+            <CardContent className="grid gap-4">
+              <a href="/BG guide IP.pdf" download>
+                <Button size="lg" className="w-full">
+                  IP Guide
+                </Button>
+              </a>
+              <a href="/IP 2.pdf" download>
+                <Button size="lg" className="w-full">
+                  Reporter Guide
+                </Button>
+              </a>
             </CardContent>
           </Card>
         </div>
@@ -498,14 +508,26 @@ export default function CommitteesPage() {
 
                   <div className="flex justify-between items-center pt-4 border-t border-border/30">
                     <div className="flex space-x-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setShowBgGuideModal(true)}
-                        className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
-                      >
-                        BG Guide
-                      </Button>
+                      {committee.name === "IP" ? (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setShowIpGuideModal(true)}
+                          className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
+                        >
+                          BG Guide
+                        </Button>
+                      ) : (
+                        <a href={(committee as any).bgGuide} download>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="bg-background/50 backdrop-blur-sm border-accent/30 hover:bg-accent/10 hover:border-accent/50 transition-all duration-300 group-hover:scale-105"
+                          >
+                            BG Guide
+                          </Button>
+                        </a>
+                      )}
                       <Button
                         variant="outline"
                         size="sm"
